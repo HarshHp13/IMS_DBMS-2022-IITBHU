@@ -1,0 +1,15 @@
+.navbar__container{
+    display:flex;
+    /* display:none; */
+    padding: 10px;
+    /* background: rgba(94, 89, 89, 0.2); */
+    /* background: radial-gradient(circle, rgb(),); */
+    /* backdrop-filter: blur(10px); */
+    width: 100%;
+    position: sticky;
+    top:0;
+}   
+
+.navbar__left{
+    margin:10px;
+}
