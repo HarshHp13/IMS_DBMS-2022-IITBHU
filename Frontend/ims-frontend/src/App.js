@@ -9,6 +9,7 @@ import {
 
 import LoginAdmin from './pages/LoginAdmin';
 import LoginUser from './pages/LoginUser';
+import AgentHome from './pages/AgentHome';
 
 function App() {
   return(
@@ -17,6 +18,7 @@ function App() {
       <Route path= '/loginAdmin' element={<LoginAdmin />} />
       <Route path= '/loginUser' element={<LoginUser />} />
       <Route path= '/userhome' element={<UserHome />} />
+      <Route path= '/agenthome' element={<AgentHome />} />
     </Routes>
   );
 }
