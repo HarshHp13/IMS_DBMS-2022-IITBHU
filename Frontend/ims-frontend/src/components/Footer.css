@@ -1,5 +1,5 @@
 .container{
-    height: 50vh;
+    height: 60vh;
     /* border: 2px solid black; */
     margin-top: 50px;
     background-image: url('https://i0.wp.com/myfreeslides.com/wp-content/uploads/2020/02/violet-Gradient-Background.jpg?ssl=1');
@@ -18,13 +18,33 @@
     color: azure;
 }
 .tookre-2{
+    padding: 10px;
     /* border: 2px solid black; */
-    height: 40%;
+    height: 90%;
     width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 14%;
+    flex-direction: column;
+    color: azure;
+}
+.tookre-2a{
+    /* border: 2px solid black; */
+    height: 70%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: azure;
+}
+.tookre-2b{
+    /* border: 2px solid black; */
+    height: 50%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    text-align: center;
     color: azure;
 }
 .tookre-3{
@@ -33,11 +53,23 @@
     width: 33%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 20px;
+    padding: 15px;
     color: azure;
 }
+.name,.email,textarea,.btn{
+    width: 80%;
+    height: 40px;
+    margin: 5px;
+}
+textarea{
+    height: 101px;
+    width: 431px;
+}
+.btn{
+    background-color: greenyellow;
+    width: 30%;
+}
+
 .lst{
     margin: 5px;
 }
