@@ -1,0 +1,133 @@
+.container1{
+    background: rgb(255 253 253);
+}
+.head-img1{
+    padding: 10px;
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+.head-para{
+    color: #172B4D;
+    font-size: 20px;
+    line-height: 30px;
+    opacity: .8;
+    margin: 0;
+    text-align: center;
+}
+.chota-nav{
+    width: fit-content;
+    height: 40px;
+    border: 2px solid rgb(174, 173, 173);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 50px;
+}
+.sunn-be{
+    padding: 15px;
+    height: 30px;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    margin: 10px;
+}
+.sunn-be:hover{
+    background-color: rgb(30,144,255);
+    color: azure;
+    cursor: pointer;
+}
+.img1{
+    width: 50%;
+}
+.img2{
+    width: 60%;
+    margin-left: 10%;
+}
+.img3{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 8%;
+}
+h2{
+    color: #172B4D;
+    font-size: 40px;
+    line-height: 56px;
+    font-weight: 400;
+    margin: 28px auto 16px;
+    text-align: center;
+}
+.desc{
+    letter-spacing: .32px;
+    color: #505F79;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 400;
+    margin: 0;
+}
+.textsecond{
+    letter-spacing: 0;
+    text-align: left;
+    color: #253858;
+    font-size: 48px;
+    font-weight: 300;
+    margin: 0 0 20px;
+}
+.texthead{
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    color: #776BFD;
+    position: relative;
+    margin: 0 0 24px 0;
+}
+.always{
+    padding: 60px;
+}
+.riya{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img1{
+    width: 90%;
+    height: 90%;
+}
+.one{
+   width: 50vw;
+   height: 70vh;
+   /* border: 2px solid black; */
+}
+.ourteam{
+    letter-spacing: 0;
+    text-align: left;
+    color: #c5a522;
+    font-size: 48px;
+    font-weight: 300;
+    margin: 0 0 20px;
+    padding: 20px;
+    text-align: center;
+}
+.cards{
+    width: 30%;
+    border: 2px solid black;
+    height: 70vh;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+.team{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.teampic{
+   width: 60%;
+   height: 60%;
+   padding: 10px;
+}
