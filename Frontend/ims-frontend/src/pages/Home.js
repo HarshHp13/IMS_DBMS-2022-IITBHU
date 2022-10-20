@@ -14,8 +14,14 @@ function Home() {
         <div className="container-1">
         <img className="mainImg" src="https://licindia.in/Slider_Images/LIC-Bima-Jyoti-Web-Banner_2042-x-610-pix_eng" alt="" />
        </div>
-       
-        <br />
+       <br />
+        
+        <div className="text1">
+        <p className="head-text">
+        A term insurance plan helps protect your loved ones and maintains their standard of living even in unforeseen circumstances. Control what you can—a term plan is what you need to ensure that your family is taken care of in your absence.
+        </p>
+        </div>
+
         <div className="conatiner-2">
             <div className="sub">
                 <div className="subsub">
@@ -50,7 +56,50 @@ function Home() {
                 
             </div>
         </div>
+        
+        <div className="container-4">
+            <div className="card-11">
+                <img className="imagea" src="./a1.png" alt="" />
+                <p className="card-11head">One of the best Prices</p>
+            </div>
+            <div className="card-11">
+            <img className="imagea" src="./a2.png" alt="" />
+            <p className="card-11head">Unbiased Advice</p>
+            </div>
+            <div className="card-11">
+            <img className="imagea" src="./a3.png" alt="" />
+            <p className="card-11head">100% Reliable</p>
+            </div>
+            <div className="card-11">
+            <img className="imagea" src="./a4.png" alt="" />
+            <p className="card-11head">Claims Support</p>
+            </div>
+            <div className="card-11">
+            <img className="imagea" src="./a5.png" alt="" />
+            <p className="card-11head">Happy to Help</p>
+            </div>
+        </div>
 
+        <div className="container-3">
+             <div className="small-1">
+                 <p className='text-head'>Get the Dhruv Insurance app</p>
+                 <span></span>
+                 <p className='text-sub'>Get control of all your insurance needs anywhere, anytime</p>
+                 <ul>
+                    <li>Compare different insurance policies</li>
+                    <li>Buy, store and share all your policies online</li>
+                    <li>Track your policy status on the go</li>
+                    <li>Download your policy with a single tap</li>
+                 </ul>
+             </div>
+             <div className="small">
+                  <img className="mobile-app" src="https://static.pbcdn.in/cdn/images/home-v1/get-app.png" alt="" />
+             </div>
+        </div>
+
+        <div className="inipicdiv">
+            <img className="ini-pic" src="https://www.maxlifeinsurance.com/corp-static/images/benefits-of-health-insurance-plans.jpg" alt="" />
+        </div>
         <Footer className='userHome__navbar'/>
     </>
   )
