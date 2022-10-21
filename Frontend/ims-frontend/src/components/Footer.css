@@ -60,6 +60,7 @@
     width: 80%;
     height: 40px;
     margin: 5px;
+    border-radius: 5px;
 }
 textarea{
     height: 101px;

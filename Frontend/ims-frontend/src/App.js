@@ -12,6 +12,7 @@ import LoginUser from './pages/LoginUser';
 import AgentHome from './pages/AgentHome';
 import Home from './pages/Home';
 import About from './pages/About';
+import Policies from './pages/Policies';
 
 function App() {
   return(
@@ -23,6 +24,7 @@ function App() {
       <Route path= '/agenthome' element={<AgentHome />} />
       <Route path= '/home' element={<Home />} />
       <Route path= '/about' element={<About />} />
+      <Route path= '/policies' element={<Policies />} />
     </Routes>
   );
 }
