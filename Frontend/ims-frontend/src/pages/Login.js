@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Button, Modal} from '@mui/material'
 import LoginAdmin from './LoginAdmin';
 import LoginUser from './LoginUser';
-
+import './Login.css'
 
 function Login(){
    const [openUser, setOpenUser] = useState(false);
@@ -21,19 +21,26 @@ function Login(){
          >
             <LoginUser />
          </Modal>
-         <h1>Welcome</h1>
-         <Button
-            className='login__user'
-            onClick={()=>setOpenAdmin(true)}
-         >
-         User
-         </Button>
-         <Button
-            className='login__admin'
-            onClick={()=>setOpenAdmin(true)}
-         >
-         Admin
-         </Button>
+         <div className="daba">
+            <h1>Welcome!</h1>
+               <div className="chotu">
+                  <button
+                     className='login__user'
+                     onClick={()=>setOpenAdmin(true)}
+                  >
+                  User
+                  </button>
+                  <button
+                     className='login__admin'
+                     onClick={()=>setOpenAdmin(true)}
+                  >
+                  Admin
+                  </button>
+               </div>
+         </div>
+         <div className="bada">
+            <img className="bada-img" src="./c2.png" alt="" />
+         </div>
             
       </div>
    )
