@@ -10,7 +10,7 @@ function About() {
     
   return (
     <>
-        <Navbar className='userHome__navbar'/>
+        {/* <Navbar className='userHome__navbar'/> */}
         <div className="container1">
             <div className="head-img1">
                 <img className="img1" src="./11.png" alt="" />
@@ -78,7 +78,7 @@ function About() {
         </div>
         
 
-        <Footer className='userHome__navbar'/>
+        {/* <Footer className='userHome__navbar'/> */}
     </>
   )
 }

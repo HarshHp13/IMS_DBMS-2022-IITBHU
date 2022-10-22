@@ -1,20 +1,15 @@
-import {Input, Button} from '@mui/material'
-import { height } from '@mui/system';
+// import {Input, Button} from '@mui/material'
+// import { height } from '@mui/system';
 import React from 'react'
-import Card from '../components/Card';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Carousel from '../components/Carousel';
 import './Home.css'
 
 function Home() {
     
   return (
     <>
-        <Navbar className='userHome__navbar'/>
-        <div className="container-1">
-        <img className="mainImg" src="https://licindia.in/Slider_Images/LIC-Bima-Jyoti-Web-Banner_2042-x-610-pix_eng" alt="" />
-       </div>
-       <br />
+        <Carousel />
+        <br />
         
         <div className="text1">
         <p className="head-text">
@@ -98,9 +93,8 @@ function Home() {
         </div>
 
         <div className="inipicdiv">
-            <img className="ini-pic" src="https://www.maxlifeinsurance.com/corp-static/images/benefits-of-health-insurance-plans.jpg" alt="" />
+            <img className="ini-pic" src="https://www.maxlifeinsurance.com/corp-static/images/benefits-of-health-insurance-plans.jpg" alt="load hi nahi ho rahi" />
         </div>
-        <Footer className='userHome__navbar'/>
     </>
   )
 }

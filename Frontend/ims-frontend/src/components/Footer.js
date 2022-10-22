@@ -50,7 +50,7 @@ function Footer() {
              </div>
              <div className="tookre-3">
                 <h1>Write to us :</h1>
-                 <form classNmae="form" action="">
+                 <form className="form" action="">
                    <input type="text" className='name' placeholder='Your Name'/>
                     <br />
                    <input type="email" className='email' placeholder='Email'/>

@@ -1,10 +1,11 @@
-body{
-    /* background-color: #ECECEC; */
-}
-.mainImg{
+/* .main_img_container{
+    display: flex;
+    justify-content: center;
+} */
+/* .mainImg{
     width: 100vw;
     height: 70vh;
-}
+} */
 .sub{
     display: flex;
     width: 100vw;

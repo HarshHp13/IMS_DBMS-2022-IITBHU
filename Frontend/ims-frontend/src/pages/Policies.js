@@ -10,7 +10,7 @@ function Policies() {
     
   return (
     <>
-        <Navbar className='userHome__navbar'/>
+        {/* <Navbar className='userHome__navbar'/> */}
 
         <div className="container-3a">
             <div className="container-3a1">
@@ -188,7 +188,7 @@ function Policies() {
             <p className="desc-3b">Despite the many features and benefits of term insurance plans, some people are still not sure how these policies impact them. Your family depends on you emotionally and financially. You may want to help your parents secure a better retirement or pay for your child’s higher education. The payout from a term plan can help your family achieve their goals even if something were to happen to you. Many young people today require loans to help them purchase a vehicle or a home. If something were to happen to you while you are repaying a loan, your family may have to deal with your loss, the loss of your income and a new financial burden. If they are unable to repay the loan, they risk losing the asset. The payout from a term plan can help your family deal with debt and protect your assets.</p>
            
         </div>
-        <Footer className='userHome__navbar'/>
+        {/* <Footer className='userHome__navbar'/> */}
     </>
   )
 }

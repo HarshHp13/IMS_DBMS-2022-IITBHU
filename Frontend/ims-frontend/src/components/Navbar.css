@@ -16,6 +16,11 @@
     cursor: pointer;
 }
 
+.link{
+    text-decoration: none;
+    color: black;
+}
+
 .navbar__link:hover{
     background-color: #DEDEDE;
 }
