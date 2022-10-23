@@ -28,7 +28,7 @@ function Login(){
                <div className="chotu">
                   <button
                      className='login__user'
-                     onClick={()=>setOpenAdmin(true)}
+                     onClick={()=>setOpenUser(true)}
                   >
                   User
                   </button>
