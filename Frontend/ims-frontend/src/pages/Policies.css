@@ -28,7 +28,8 @@
     border-radius: 7px;
     /* position: -webkit-sticky; Safari & IE */
     position: sticky;
-    top: 0; 
+    top: 0;
+    z-index: 1;
 }
 .aa{
     width: 19%;
@@ -103,7 +104,9 @@
 .baa1,.baa2,.baa3,.baa4{
     border-right: 2px solid rgb(176, 175, 175);
 }
-
+.baa1{
+    cursor: pointer;
+}
 #a1,#a2,#a3,#a4{
     border-right: 2px solid rgb(242, 240, 240);
 }

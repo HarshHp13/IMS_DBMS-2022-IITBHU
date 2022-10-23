@@ -142,6 +142,7 @@ li::before{
     margin-right: 20px;
     -webkit-transition: all .1s ease-in-out;
     transition: all .1s ease-in-out;
+    cursor: pointer;
 }
 .container-4{
     display: flex;

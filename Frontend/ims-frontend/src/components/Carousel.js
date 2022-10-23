@@ -38,12 +38,4 @@ function Carousel(){
     );
 }
 
-
-
-
-
-// prevButton.addEventListener("click", () => {
-    
-// });
-
 export default Carousel;

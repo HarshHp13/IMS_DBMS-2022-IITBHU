@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
-import {Button, Modal} from '@mui/material'
+import React, {useState} from 'react'
+import {Modal} from '@mui/material'
 import LoginAdmin from './LoginAdmin';
 import LoginUser from './LoginUser';
+
 import './Login.css'
 
 function Login(){
    const [openUser, setOpenUser] = useState(false);
    const [openAdmin, setOpenAdmin] = useState(false);
    return(
-      <div>
+      <div className='login__wrapper'>
          <Modal
             open={openAdmin}
             onClose={()=>setOpenAdmin(false)}
@@ -21,6 +22,7 @@ function Login(){
          >
             <LoginUser />
          </Modal>
+         
          <div className="daba">
             <h1>Welcome!</h1>
                <div className="chotu">
@@ -38,10 +40,11 @@ function Login(){
                   </button>
                </div>
          </div>
+         
          <div className="bada">
             <img className="bada-img" src="./c2.png" alt="" />
          </div>
-            
+
       </div>
    )
 }

@@ -11,7 +11,14 @@ function Navbar() {
             <h3 className='navbar__link'><Link className='link' to={'/policies'}>Policies</Link></h3>
             {/* <h3 className='navbar__link'><Link className='link' to={'/'}>Active Plans</Link></h3> */}
             <h3 className='navbar__link'><Link className='link' to={'/about'}>About Us</Link></h3>
-            <h3 className='navbar__link'><Link className='link' to={'/'}>Contact Us</Link></h3>
+            <h3 className='navbar__link right' onClick={()=>{
+              window.scrollBy({
+                top: document.body.scrollHeight,
+                left: 0,
+                behavior: 'smooth'
+              });
+            }}>Contact Us</h3>
+            <h3 className='navbar__link'><Link className='link' to={'/login'}>Login</Link></h3>
         </div>
     </>
   )
