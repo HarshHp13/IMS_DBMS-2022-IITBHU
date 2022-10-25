@@ -1,4 +1,5 @@
 import axios from 'axios'
+import qs from 'qs'
 
 
 const myAxios = new axios.create({
@@ -37,11 +38,24 @@ export const getUserById=(id)=>{
 }
 
 export const userLogin=(username, password)=>{
-    return myAxios.get('/login',{
+    return myAxios.get('/',{
         withCredentials:true,
         auth:{
             username:username,
             password:password
+        }
+    }).then((res)=>res.status);
+}
+
+export const userSignup=(username, password)=>{
+    const auth={
+        username: username,
+        password: password
+    }
+    const data=qs.stringify(auth)
+    return myAxios.post('/',data,{
+        headers:{
+            'Content-Type':"application/x-www-form-urlencoded"
         }
     }).then((res)=>res.status);
 }

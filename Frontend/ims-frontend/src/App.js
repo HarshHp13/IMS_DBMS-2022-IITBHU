@@ -1,15 +1,15 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import {
   Route,
   Routes
 } from "react-router-dom"
-import { 
-  listUser,
-  // insertUser,
-  deleteUserById, 
-  getUserById 
-} from './services/api_connect';
+// import { 
+//   listUser,
+//   // insertUser,
+//   deleteUserById, 
+//   getUserById 
+// } from './services/api_connect';
 import Login from './login';
 import Home from './Home';
 
