@@ -1,4 +1,4 @@
-.UserProfile__container{
+.AdminProfile__container{
     display: flex;
     flex-direction: column;
     width: 800px;
@@ -8,19 +8,23 @@
     margin: auto;
 }
 
-.UserProfile__user{
+.AdminProfile__top{
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 10px;
-    border-bottom: 1.5px solid rgba(0,0,0,0.6);
+}
+
+.AdminProfile__admin{
     display: flex;
 }
 
-.UserProfile__picture{
+.AdminProfile__picture{
     height: 70px;
     width: 70px;
     box-shadow: 0px 0px 1px;
 }
 
-.UserProfile__name{
+.AdminProfile__name{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -28,17 +32,23 @@
     margin-left: 10px;
 }
 
-.UserProfile__dataBlock{
+.AdminProfile__stars{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.AdminProfile__dataBlock{
     display: flex;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.UserProfile__left_dataBlock{
+.AdminProfile__left_dataBlock{
     width: 170px;
 }
 
-.UserProfile__userData{
+.AdminProfile_bottomBorder{
     border-bottom: 1.5px solid rgba(0,0,0,0.6);
 }
