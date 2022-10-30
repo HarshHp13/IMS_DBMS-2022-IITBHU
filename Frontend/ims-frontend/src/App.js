@@ -13,6 +13,7 @@ import About from './pages/About';
 import Policies from './pages/Policies';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import UserProfile from './pages/UserProfile';
 
 function App() {
   return(
@@ -25,6 +26,7 @@ function App() {
       <Route path= '/' element={<Home />} />
       <Route path= '/about' element={<About />} />
       <Route path= '/policies' element={<Policies />} />
+      <Route path= '/userProfile' element={<UserProfile />} />
     </Routes>
     <Footer />
     </>
