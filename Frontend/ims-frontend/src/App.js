@@ -14,7 +14,7 @@ import Policies from './pages/Policies';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import UserProfile from './pages/UserProfile';
-import AdminProfile from './pages/AdminProfile';
+import AgentProfile from './pages/AgentProfile';
 
 function App() {
   return(
@@ -28,7 +28,7 @@ function App() {
       <Route path= '/about' element={<About />} />
       <Route path= '/policies' element={<Policies />} />
       <Route path= '/userProfile' element={<UserProfile />} />
-      <Route path= '/adminProfile' element={<AdminProfile />} />
+      <Route path= '/agentProfile' element={<AgentProfile />} />
     </Routes>
     <Footer />
     </>

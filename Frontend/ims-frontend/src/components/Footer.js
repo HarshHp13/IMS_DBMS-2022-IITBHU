@@ -27,7 +27,7 @@ function Footer() {
       <div className='Footer__contact'>
         <div className='Footer__phone'>9910279337</div>
         <div className='Footer__phone'>9910279227</div>
-        <div className='Footer__email'>help@ims.ac.in</div>
+        <div className='Footer__email'>customersupport@ims.ac.in</div>
         <div className='Footer__address'>Vishwesaraya hostel, Near Hyderabad gate, IIT BHU-Varanasi</div>
       </div>
       <div className="Footer__bottomLine Footer__topLine">
@@ -45,9 +45,9 @@ function Footer() {
         </a>
       </div>
       <div className='Footer__links'>
-        <div className='Footer__home Footer__link' onClick={scrollToTop}><Link className='link' to={'/'}>Home</Link></div>
-        <div className='Footer__policies Footer__link' onClick={scrollToTop}><Link className='link' to={'/policies'}>Policies</Link></div>
-        <div className='Footer__aboutUs Footer__link' onClick={scrollToTop}><Link className='link' to={'/about'}>About Us</Link></div>
+        <div className='Footer__home Footer__link' onClick={scrollToTop}><Link className='Footer__link' to={'/'}>Home</Link></div>
+        <div className='Footer__policies Footer__link' onClick={scrollToTop}><Link className='Footer__link' to={'/policies'}>Policies</Link></div>
+        <div className='Footer__aboutUs Footer__link' onClick={scrollToTop}><Link className='Footer__link' to={'/about'}>About Us</Link></div>
       </div>
     </div>
   );

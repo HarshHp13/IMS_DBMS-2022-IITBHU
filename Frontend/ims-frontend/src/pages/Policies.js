@@ -1,17 +1,20 @@
-import { Input, Button } from '@mui/material'
-import { height } from '@mui/system';
-import React from 'react'
-import Card from '../components/Card';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import React, {useState} from 'react'
+import {Modal} from '@mui/material'
+import PolicyDescription from './PolicyDescription'
 import './Policies.css'
 
 function Policies() {
+    const [openDescription, setOpenDescription] = useState(false);
 
     return (
         <>
             {/* <Navbar className='userHome__navbar'/> */}
-
+            <Modal
+                open={openDescription}
+                onClose={()=>setOpenDescription(false)}
+            >
+            <PolicyDescription />
+            </Modal>
             <div className="container-3a">
                 <div className="container-3a1">
                     <div className="nav-3a">
@@ -25,7 +28,7 @@ function Policies() {
                     <div className="body-3a">
                         <div className="ba baa1">
                             <img className="a-img" src="./b1.png" alt="" />
-                            <p className='a-imgtag'>Plan Details</p>
+                            <p className='a-imgtag' onClick={()=>setOpenDescription(true)}>Plan Details</p>
                         </div>
                         <div className="ba baa2">
                             <p className="lifecover">50 Lakh</p>

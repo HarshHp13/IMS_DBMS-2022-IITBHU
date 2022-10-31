@@ -78,7 +78,7 @@
 }
 .a-imgtag{
     width: 100px;
-    background: transparent linear-gradient(91deg,#eaf2ff,#fff) 0 0 no-repeat;
+    /* background: transparent linear-gradient(91deg,#eaf2ff,#fff) 0 0 no-repeat; */
     border-radius: 4px;
     position: relative;
     top: 2px;
@@ -90,6 +90,7 @@
     height: 16px;
     padding-right: 6px;
 }
+
 .ba{
     width: 19%;
     position: relative;

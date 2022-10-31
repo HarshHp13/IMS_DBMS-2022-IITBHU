@@ -1,5 +1,5 @@
 import React from 'react';
-import './AdminProfile.css'
+import './AgentProfile.css'
 
 function AdminProfile() {
     const totalStars = 5;

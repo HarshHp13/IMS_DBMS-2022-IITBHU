@@ -5,6 +5,7 @@
     align-items: center;
     height: 300px;
     background-color: #304146;
+    color: white;
 }
 
 .Footer__links{
@@ -59,4 +60,9 @@ a.Footer__twitter {
 
 a.Footer__instagram {
     color: black;
+}
+
+.Footer__link{
+    text-decoration: none;
+    color: white;
 }
