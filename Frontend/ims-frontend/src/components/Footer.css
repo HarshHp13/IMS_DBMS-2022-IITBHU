@@ -1,103 +1,62 @@
-.container{
-    height: 60vh;
-    /* border: 2px solid black; */
-    margin-top: 50px;
-    background-image: url('https://i0.wp.com/myfreeslides.com/wp-content/uploads/2020/02/violet-Gradient-Background.jpg?ssl=1');
-    display: flex;
-    justify-content: center;
-}
-.tookre-1{
-    /* border: 2px solid black; */
-    height: 40%;
-    width: 33%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    color: azure;
-}
-.tookre-2{
-    padding: 10px;
-    /* border: 2px solid black; */
-    height: 90%;
-    width: 33%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: azure;
-}
-.tookre-2a{
-    /* border: 2px solid black; */
-    height: 70%;
-    width: 90%;
+.Footer__container{
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    text-align: center;
-    color: azure;
-}
-.tookre-2b{
-    /* border: 2px solid black; */
-    height: 50%;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: azure;
-}
-.tookre-3{
-    /* border: 2px solid black; */
-    height: 90%;
-    width: 33%;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    color: azure;
-}
-.name,.email,textarea,.btn{
-    width: 80%;
-    height: 40px;
-    margin: 5px;
-    border-radius: 5px;
-}
-textarea{
-    height: 101px;
-    width: 431px;
-}
-.btn{
-    background-color: greenyellow;
-    width: 30%;
+    height: 300px;
+    background-color: #304146;
 }
 
-.lst{
-    margin: 5px;
+.Footer__links{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
 }
-.social-container {
-    background: #eee;
-    padding: 25px 50px;
+
+.Footer__link{
+    cursor: pointer;
 }
-a.social {
-    margin: 0 1rem;
+
+.Footer__contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Footer__phone, .Footer__email, .Footer__address{
+    margin: 3px;
+}
+
+.Footer__topLine{
+    border-top: 1.5px solid rgba(0,0,0,0.6);
+}
+
+.Footer__bottomLine{
+    border-bottom: 1.5px solid rgba(0,0,0,0.6);
+}
+
+a.Footer__social {
+    margin: 20px;
     transition: transform 250ms;
     display: inline-block;
 }
-a.social:hover {
-    transform: translateY(-2px);
+
+a.Footer__social:hover {
+    transform: translateY(-3px);
 }
-a.youtube {
+
+a.Footer__youtube {
     color: #eb3223;
-  }
-  
-  a.facebook {
+}
+
+a.Footer__facebook {
     color: #4968ad;
-  }
-  
-  a.twitter {
+}
+
+a.Footer__twitter {
     color: #49a1eb;
-  }
-  
-  a.instagram {
+}
+
+a.Footer__instagram {
     color: black;
-  }
+}
