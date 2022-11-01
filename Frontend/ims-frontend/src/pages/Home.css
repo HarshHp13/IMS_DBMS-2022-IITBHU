@@ -105,30 +105,6 @@ p{
     padding-bottom: 40px;
     padding-top: 15px;
 }
-span{
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: #0065FF;
-    margin: 5px;
-}
-li{
-    list-style: none;
-    margin: 0 0 0 30px;
-    padding: 0 0 20px 0;
-    font-size: 20px;
-    color: #253858;
-}
-li::before{
-    content: '';
-    width: 16px;
-    height: 16px;
-    background: url(https://static.pbcdn.in/cdn/images/webp/star-outline.webp) no-repeat;
-    display: inline-block;
-    vertical-align: middle;
-    background-size: cover;
-    margin: 0 14px 0 -30px;
-}
 .card-11{
     margin: 0;
     padding: 0;
