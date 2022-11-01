@@ -5,15 +5,29 @@ import './Policies.css'
 
 function Policies() {
     const [openDescription, setOpenDescription] = useState(false);
+    const [policyData, setPolicyData] = useState({
+        desc: null,
+        minAge: null,
+        maxAge: null,
+        profession: null,
+        name: null,
+        registrationFee: null,
+        premium: null,
+        tenure: null,
+    });
+    let userData={
+        firstName: "Harshit",
+        middleName: null,
+        lastName: "Singh",
+    }
 
     return (
         <>
-            {/* <Navbar className='userHome__navbar'/> */}
             <Modal
                 open={openDescription}
                 onClose={()=>setOpenDescription(false)}
             >
-            <PolicyDescription />
+            <PolicyDescription policyData={policyData} userData={userData}/>
             </Modal>
             <div className="container-3a">
                 <div className="container-3a1">
@@ -28,7 +42,19 @@ function Policies() {
                     <div className="body-3a">
                         <div className="ba baa1">
                             <img className="a-img" src="./b1.png" alt="" />
-                            <p className='a-imgtag' onClick={()=>setOpenDescription(true)}>Plan Details</p>
+                            <p className='a-imgtag' onClick={()=>{
+                                setPolicyData({
+                                    desc: "Pehli Policy is a term insurance plan that takes care of your protection and savings needs for securing the future of your children. As a parent, one of your most important goals would be to make sure that your children have a bright future and lead their lives comfortably. These plans can help you achieve this by saving for your children’s higher education at a prestigious university.",
+                                    minAge: 12,
+                                    maxAge: 60,
+                                    profession: "student",
+                                    name: "pehli Policy",
+                                    registrationFee: 199,
+                                    premium: 2999,
+                                    tenure: 20,
+                                })
+                                setOpenDescription(true);
+                            }}>Plan Details</p>
                         </div>
                         <div className="ba baa2">
                             <p className="lifecover">50 Lakh</p>
@@ -191,7 +217,6 @@ function Policies() {
                 <p className="desc-3b">Despite the many features and benefits of term insurance plans, some people are still not sure how these policies impact them. Your family depends on you emotionally and financially. You may want to help your parents secure a better retirement or pay for your child’s higher education. The payout from a term plan can help your family achieve their goals even if something were to happen to you. Many young people today require loans to help them purchase a vehicle or a home. If something were to happen to you while you are repaying a loan, your family may have to deal with your loss, the loss of your income and a new financial burden. If they are unable to repay the loan, they risk losing the asset. The payout from a term plan can help your family deal with debt and protect your assets.</p>
 
             </div>
-            {/* <Footer className='userHome__navbar'/> */}
         </>
     )
 }
