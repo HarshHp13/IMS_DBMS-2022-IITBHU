@@ -3,8 +3,18 @@
 import React from 'react'
 import Carousel from '../components/Carousel';
 import './Home.css'
+import UseAxiosPrivate from '../hooks/useAxiosPrivate'
+import RefreshToken from '../hooks/refreshToken';
 
 function Home() {
+
+    const axiosPrivate=UseAxiosPrivate();
+    const refresh=RefreshToken();
+    const getClient=async ()=>{
+        const res = await axiosPrivate.get('/clients')
+        return res.data;
+    }
+
     return (
         <>
             <Carousel />
