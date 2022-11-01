@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './UserProfile.css'
+import {Modal} from '@mui/material'
+import BuyPolicy from './BuyPolicy'
 
 function UserProfile() {
+    const [openTransaction, setOpenTransaction] = useState(false);
     return (
+        <>
+        <Modal
+            open={openTransaction}
+            onClose={()=>setOpenTransaction(false)}
+        >
+        <BuyPolicy></BuyPolicy>
+        </Modal>
         <div className='UserProfile__container'>
             <div className='UserProfile__user'>
                 <div className='UserProfile__picture'></div>
@@ -80,39 +90,58 @@ function UserProfile() {
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Income:</strong>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__income'>
+                    <div className='UserProfile__left_data Block UserProfile__income'>
                         13.6 lakh PA
                     </div>
                 </div>
             </div>
             <div className='UserProfile__policyData'>
-                <h3>Your Policies</h3>
+                <h3>Current Policies</h3>
+                <div className='UserProfile__dataBlock UserProfile__pointer'>
+                    KIC Life eShield
+                </div>
+                <div className='UserProfile__dataBlock UserProfile__pointer'>
+                    Aviva i-Life
+                </div>
+            </div>
+            <div className='UserProfile__policyData'>
+                <h3>Requested Policies</h3>
                 <div className='UserProfile__dataBlock'>
-                    <div className='UserProfile__left_dataBlock'>
-                        <strong>Requested Policies:</strong>
+                    <div className='UserProfile__requestPolicyInfo'>
+                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
+                            KIC Life eShield: 
+                        </div>
+                        <div className='UserProfile__left_data Block UserProfile__income'>
+                            Approved
+                        </div>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__requestedPolicies'>
-                        3
-                    </div>
+                    <button className='UserProfile__button' onClick={()=>setOpenTransaction(true)}>Buy</button>
                 </div>
                 <div className='UserProfile__dataBlock'>
-                    <div className='UserProfile__left_dataBlock'>
-                        <strong>Approved Policies:</strong>
+                    <div className='UserProfile__requestPolicyInfo'>
+                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
+                            KIC Life eShield: 
+                        </div>
+                        <div className='UserProfile__left_data Block UserProfile__income'>
+                            Approved
+                        </div>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__approvedPolicies'>
-                        6
-                    </div>
+                    <button className='UserProfile__button'>Buy</button>
                 </div>
                 <div className='UserProfile__dataBlock'>
-                    <div className='UserProfile__left_dataBlock'>
-                        <strong>Current Policies:</strong>
+                    <div className='UserProfile__requestPolicyInfo'>
+                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
+                            KIC Life eShield: 
+                        </div>
+                        <div className='UserProfile__left_data Block UserProfile__income'>
+                            Approved
+                        </div>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__currentPolicies'>
-                        2
-                    </div>
+                    <button className='UserProfile__button'>Buy</button>
                 </div>
             </div>
         </div>
+    </>
     );
 }
 

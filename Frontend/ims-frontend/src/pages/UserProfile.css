@@ -34,6 +34,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
+
 }
 
 .UserProfile__left_dataBlock{
@@ -42,4 +43,17 @@
 
 .UserProfile__userData{
     border-bottom: 1.5px solid rgba(0,0,0,0.6);
+}
+
+.UserProfile__pointer{
+    cursor: pointer;
+}
+
+.UserProfile__requestPolicyInfo{
+    display: flex;
+    width: 100%;
+}
+
+.UserProfile__button{
+    cursor: pointer;
 }
