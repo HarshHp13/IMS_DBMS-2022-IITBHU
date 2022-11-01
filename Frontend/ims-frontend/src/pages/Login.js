@@ -1,54 +1,23 @@
-import React, {useState} from 'react'
-import {Modal} from '@mui/material'
-import LoginAdmin from './LoginAdmin';
-import LoginUser from './LoginUser';
+// import React, {useState} from 'react'
+// import {Modal} from '@mui/material'
+// import LoginAdmin from './LoginAdmin';
+// import LoginUser from './LoginUser';
 
-import './Login.css'
+// import './Login.css'
 
-function Login(){
-   const [openUser, setOpenUser] = useState(false);
-   const [openAdmin, setOpenAdmin] = useState(false);
+// function Login(){
+//    const [openUser, setOpenUser] = useState(false);
+//    const [openAdmin, setOpenAdmin] = useState(false);
 
    
 
-   return(
-      <div className='login__wrapper'>
-         <Modal
-            open={openAdmin}
-            onClose={()=>setOpenAdmin(false)}
-         >
-            <LoginAdmin />
-         </Modal>
-         <Modal
-            open={openUser}
-            onClose={()=>setOpenUser(false)}
-         >
-            <LoginUser />
-         </Modal>
+//    return(
+//       <div className='login__wrapper'>
          
-         <div className="daba">
-            <h1>Welcome!</h1>
-               <div className="chotu">
-                  <button
-                     className='login__user'
-                     onClick={()=>setOpenUser(true)}
-                  >
-                  User
-                  </button>
-                  <button
-                     className='login__admin'
-                     onClick={()=>setOpenAdmin(true)}
-                  >
-                  Admin
-                  </button>
-               </div>
-         </div>
          
-         <div className="bada">
-            <img className="bada-img" src="./c2.png" alt="" />
-         </div>
+         
 
-      </div>
-   )
-}
-export default Login
+//       </div>
+//    )
+// }
+// export default Login

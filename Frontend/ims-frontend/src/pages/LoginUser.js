@@ -31,9 +31,9 @@ function LoginUser() {
     return res;
   }
 
-  function clickHandler(e){
+  function clickHandler(e,user,pass){
     e.preventDefault();
-    userLogin(username,password)
+    userLogin(user,pass)
     .then((res)=>{
       try{
         const accessToken=res.headers.get('access_token')
@@ -78,7 +78,7 @@ function LoginUser() {
           // console.log(auth.accessToken)
           
 
-          clickHandler(e)
+          clickHandler(e,usernameSignup,passwordSignup)
           
           // navigate('/home')
           // res.status===200?setRouteSignUp(true):console.log("failure");
@@ -102,7 +102,7 @@ function LoginUser() {
   if(signUp){
     return (
       <>
-          <form className='loginUser__container'>
+          <form className='signUpUser__container'>
 
             <center><h3>User Sign Up</h3></center>
             <Input className='loginUser__input' type='text' placeholder='First Name' />
@@ -111,8 +111,8 @@ function LoginUser() {
             <Input className='loginUser__input' type='password' placeholder='Password' onChange={(e)=>setPasswordSignup(e.target.value)} required/> 
             <Input className='loginUser__input' type='email' placeholder='Email' />
             <Input className='loginUser__input' type='tel' placeholder='Phone' />
+            <center><Button className='loginUser__button' onClick={clickHandlerSignup}>Sign Up</Button></center>
             <center><div className='loginUser__text' onClick={()=>setSignUp(false)}>Already a user? Sign In</div></center>
-            <center><Button className='loginUser__button' onClick={clickHandlerSignup}>Submit</Button></center>
           </form>
       </>
     )
@@ -124,8 +124,8 @@ function LoginUser() {
             <center><h3>User Login</h3></center>
             <Input className='loginUser__input' type='email' placeholder='Username' onChange={(e)=>setUsername(e.target.value)} required/>
             <Input className='loginUser__input' type='password' placeholder='Password' onChange={(e)=>setPassword(e.target.value)} required/>
+            <center><Button className='loginUser__button' onClick={(e)=>{clickHandler(e,username,password)}}>Login</Button></center>
             <center><div className='loginUser__text' onClick={()=>setSignUp(true)}>Sign Up if not already a user</div></center>
-            <center><Button className='loginUser__button' onClick={clickHandler}>Submit</Button></center>
           </form>
       </>
     )

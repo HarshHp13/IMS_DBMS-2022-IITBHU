@@ -9,20 +9,10 @@ function LoginAdmin() {
   return (
     <>
         <form className='loginAdmin__container'>
-          {
-            signUp
-            ?<center><h3>Admin Login</h3></center>
-            :<center><h3>Admin Sign Up</h3></center>
-          }
-            
-            <Input className='loginAdmin__email' type='email' placeholder='Username' />
-            <Input className='loginAdmin__password' type='password' placeholder='Password'/>
-            {
-              signUp
-              ?<center><div className='loginAdmin__text' onClick={()=>setSignUp(false)}>Already a user? Sign In</div></center>
-              :<center><div className='loginAdmin__text' onClick={()=>setSignUp(true)}>Sign Up if not already a user</div></center>
-            }
-            <center><Button className='loginAdmin__button'>Submit</Button></center>
+          <center><h3>Admin Login</h3></center>
+          <Input className='loginAdmin__email' type='email' placeholder='Username' />
+          <Input className='loginAdmin__password' type='password' placeholder='Password'/>
+          <center><Button className='loginAdmin__button'>Login</Button></center>
         </form>
     </>
   )
