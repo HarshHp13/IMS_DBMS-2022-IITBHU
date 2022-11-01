@@ -12,19 +12,12 @@ public class Auth {
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String name;
     private String username;
     private String password;
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @MappedCollection(idColumn = "roles_id")
-//    private Collection<Role> roles=new ArrayList<>();
     private String roles;
     public Auth(){}
 
-    public Auth(String name, String username, String password, String roles) {
-//        this.id = id;
-        this.name = name;
+    public Auth(String username, String password, String roles) {
         this.username = username;
         this.roles = roles;
         this.password=password;
@@ -36,14 +29,6 @@ public class Auth {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getUsername() {
@@ -75,7 +60,6 @@ public class Auth {
     public String toString() {
         return "Client{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
