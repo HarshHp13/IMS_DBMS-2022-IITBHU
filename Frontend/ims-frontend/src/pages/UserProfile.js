@@ -115,7 +115,7 @@ function UserProfile() {
                             Approved
                         </div>
                     </div>
-                    <button className='UserProfile__button' onClick={()=>setOpenTransaction(true)}>Buy</button>
+                    <button className='UserProfile__button' onClick={()=>setOpenTransaction(true)}>Proceed</button>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
@@ -126,7 +126,7 @@ function UserProfile() {
                             Approved
                         </div>
                     </div>
-                    <button className='UserProfile__button'>Buy</button>
+                    <button className='UserProfile__button'>Proceed</button>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
@@ -137,7 +137,7 @@ function UserProfile() {
                             Approved
                         </div>
                     </div>
-                    <button className='UserProfile__button'>Buy</button>
+                    <button className='UserProfile__button'>Proceed</button>
                 </div>
             </div>
         </div>

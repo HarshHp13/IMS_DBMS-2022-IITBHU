@@ -24,19 +24,7 @@
     border-bottom: 1.5px solid rgba(0,0,0,0.2);
 }
 
-
-.BuyPolicy__premium{
-    display: flex;
-}
-
-.BuyPolicy__decrement{
-    margin-left: 10px;
-}
-
-.BuyPolicy__increment{
-    margin-right: 10px;
-}
-
-.AdminProfile__requestPolicyInfo{
-    
+.BuyPolicy__details{
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid rgba(0,0,0,0.6);
 }
