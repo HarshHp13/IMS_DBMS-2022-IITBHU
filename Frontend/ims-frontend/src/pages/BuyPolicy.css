@@ -10,6 +10,33 @@
     background-color: white;
 }
 
-.BuyPolicy__heading{
+.BuyPolicy__dataBlock{
+    display: flex;
+    padding: 10px;
+    padding-left: 0px;
+}
+
+.BuyPolicy__leftDataBlock{
+    width: 200px;
+}
+
+.BuyPolicy__bottomBorder{
+    border-bottom: 1.5px solid rgba(0,0,0,0.2);
+}
+
+
+.BuyPolicy__premium{
+    display: flex;
+}
+
+.BuyPolicy__decrement{
+    margin-left: 10px;
+}
+
+.BuyPolicy__increment{
+    margin-right: 10px;
+}
+
+.AdminProfile__requestPolicyInfo{
     
 }

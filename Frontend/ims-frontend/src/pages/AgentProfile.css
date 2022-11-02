@@ -1,4 +1,4 @@
-.AdminProfile__container{
+.AgentProfile__container{
     display: flex;
     flex-direction: column;
     width: 800px;
@@ -9,23 +9,23 @@
     margin-bottom: 30px;
 }
 
-.AdminProfile__top{
+.AgentProfile__top{
     display: flex;
     justify-content: space-between;
     padding-bottom: 10px;
 }
 
-.AdminProfile__admin{
+.AgentProfile__agent{
     display: flex;
 }
 
-.AdminProfile__picture{
+.AgentProfile__picture{
     height: 70px;
     width: 70px;
     box-shadow: 0px 0px 1px;
 }
 
-.AdminProfile__name{
+.AgentProfile__name{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -33,23 +33,33 @@
     margin-left: 10px;
 }
 
-.AdminProfile__stars{
+.AgentProfile__stars{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
-.AdminProfile__dataBlock{
+.AgentProfile__dataBlock{
     display: flex;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.AdminProfile__left_dataBlock{
+.AgentProfile__left_dataBlock{
     width: 170px;
 }
 
-.AdminProfile_bottomBorder{
+.AgentProfile_bottomBorder{
     border-bottom: 1.5px solid rgba(0,0,0,0.6);
+}
+
+.AgentProfile__requestPolicyInfo{
+    display: flex;
+    width: 100%;
+}
+
+.AgentProfile__button{
+    width: 150px;
+    margin-left: 10px;
 }
