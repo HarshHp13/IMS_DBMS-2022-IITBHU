@@ -1,38 +1,34 @@
 import React, {useState} from 'react';
 import './UserProfile.css'
 import {Modal} from '@mui/material'
-import BuyPolicy from './BuyPolicy'
+import StartPolicy from './StartPolicy'
 
 function UserProfile() {
     const [openTransaction, setOpenTransaction] = useState(false);
+    const id = 1;
+    const firstName = "Harshit";
+    const lastName = "Singh";
+    const email = "artofharry00@gmail.com";
     return (
         <>
         <Modal
             open={openTransaction}
             onClose={()=>setOpenTransaction(false)}
         >
-        <BuyPolicy></BuyPolicy>
+        <StartPolicy></StartPolicy>
         </Modal>
         <div className='UserProfile__container'>
             <div className='UserProfile__user'>
                 <div className='UserProfile__picture'></div>
-                <div className='UserProfile__name'>Harshit Singh</div>
+                <div className='UserProfile__name'>{firstName} {lastName}</div>
             </div>
             <div className='UserProfile__userData'>
-                <div className='UserProfile__dataBlock'>
-                    <div className='UserProfile__left_dataBlock'>
-                        <strong>Username:</strong>
-                    </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__username'>
-                        ArtofHarry7
-                    </div>
-                </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Email:</strong>
                     </div>
                     <div className='UserProfile__left_dataBlock UserProfile__email'>
-                        artofharry00@gmail.com
+                        {email}
                     </div>
                 </div>
                 <div className='UserProfile__dataBlock'>
@@ -92,6 +88,14 @@ function UserProfile() {
                     </div>
                     <div className='UserProfile__left_data Block UserProfile__income'>
                         13.6 lakh PA
+                    </div>
+                </div>
+                <div className='UserProfile__dataBlock'>
+                    <div className='UserProfile__left_dataBlock'>
+                        <strong>Refferal Code:</strong>
+                    </div>
+                    <div className='UserProfile__left_data Block UserProfile__income'>
+                        ${id}#{firstName}
                     </div>
                 </div>
             </div>
