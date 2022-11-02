@@ -34,20 +34,31 @@
 }
 
 .signUpUser__container{
+    
     background-color: white;
     justify-content: center;
     /* margin-top: 25vh;
     margin-left: 25vw; */
-    margin-left:auto;
-    margin-right: auto;
-    margin-top: 20vh;
+    
+    /* height:70vh; */
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* height: 300px; */
-    width: 500px;
+    
     /* border: 2px solid black; */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(66, 63, 63);
+}
+
+.signUpUser__wrapper{
+    margin-left:auto;
+    margin-right: auto;
+    width: 500px;
+    overflow-y: scroll;
+    margin-top:20vh;
+    height: 70vh;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgb(66, 63, 63);
 }
