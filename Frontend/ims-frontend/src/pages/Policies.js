@@ -34,9 +34,9 @@ function Policies() {
                     <div className="nav-3a">
                         <div className="aa" id='a1'>Insurerance</div>
                         <div className="aa" id='a2'>Life Cover</div>
-                        <div className="aa" id='a3'>Coverage till age</div>
-                        <div className="aa" id='a4'>Claim settled</div>
-                        <div className="aa" id='a5'>Monthly payment</div>
+                        <div className="aa" id='a3'>Age Limit</div>
+                        <div className="aa" id='a4'>Tenure</div>
+                        <div className="aa" id='a5'>Premium</div>
                     </div>
 
                     <div className="body-3a">

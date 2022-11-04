@@ -99,16 +99,26 @@ function UserProfile() {
                     </div>
                 </div>
             </div>
-            <div className='UserProfile__policyData'>
+            <div className='UserProfile__currentPolicies'>
                 <h3>Current Policies</h3>
-                <div className='UserProfile__dataBlock UserProfile__pointer'>
-                    KIC Life eShield
+                <div className='UserProfile__dataBlock'>
+                    <div className='UserProfile__requestPolicyInfo'>
+                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
+                            KIC Life eShield
+                        </div>
+                    </div>
+                    <button className='UserProfile__button'>Details</button>
                 </div>
-                <div className='UserProfile__dataBlock UserProfile__pointer'>
-                    Aviva i-Life
+                <div className='UserProfile__dataBlock'>
+                    <div className='UserProfile__requestPolicyInfo'>
+                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
+                        Aviva i-Life
+                        </div>
+                    </div>
+                    <button className='UserProfile__button'>Details</button>
                 </div>
             </div>
-            <div className='UserProfile__policyData'>
+            <div className='UserProfile__requestedPolicies'>
                 <h3>Requested Policies</h3>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
