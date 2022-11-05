@@ -5,20 +5,46 @@ import Carousel from '../components/Carousel';
 import './Home.css'
 import UseAxiosPrivate from '../hooks/useAxiosPrivate'
 import RefreshToken from '../hooks/refreshToken';
+import UseAuth from '../hooks/useAuth';
+import { useEffect } from 'react';
+// import UseAxiosPrivate from '../hooks/useAxiosPrivate'
 
 function Home() {
-
+    const {auth,setAuth}= UseAuth()
     const axiosPrivate=UseAxiosPrivate();
     const refresh=RefreshToken();
     const getClient=async ()=>{
         const res = await axiosPrivate.get('/clients')
         return res.data;
     }
+    const setUser=()=>{
+        axiosPrivate.get("/user/getUser").then((res)=>{
+            const user=res.data
+            setAuth(prev=>{
+            return {...prev,user:user}
+            })
+            
+        })
+    }
+    
+    useEffect(() => {
+        if(auth.isAuthenticated) setUser();
+    }, [auth.isAuthenticated]);
+
+    // const getUser=async ()=>{
+    //     const res=await 
+            
+    //     })
+    //     // console.log(res.data)
+    //     // return res.data;
+    // }
+    
 
     return (
         <>
             <Carousel />
             <br />
+            {/* <button onClick={()=>getUser()}>Get User</button> */}
 
             <div className="text1">
                 <p className="head-text">

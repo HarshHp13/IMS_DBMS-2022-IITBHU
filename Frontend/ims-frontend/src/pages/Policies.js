@@ -1,26 +1,25 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Modal} from '@mui/material'
 import PolicyDescription from './PolicyDescription'
 import './Policies.css'
+import UseAxiosPrivate from '../hooks/useAxiosPrivate'
 
 function Policies() {
+    const axiosPrivate=UseAxiosPrivate();
     const [openDescription, setOpenDescription] = useState(false);
-    const [policyData, setPolicyData] = useState({
-        desc: null,
-        minAge: null,
-        maxAge: null,
-        profession: null,
-        name: null,
-        registrationFee: null,
-        premium: null,
-        tenure: null,
-        ApplyButton: 0,
-    });
+    const [policyData, setPolicyData] = useState(null);
+    const ApplyButton=1;
     let userData={
         firstName: "Harshit",
         middleName: null,
         lastName: "Singh",
     }
+    // axiosPrivate.get("/policy/list").then((res)=>console.log(res.data))
+    const [policies, setPolicies] = useState([]);
+
+    useEffect(() => {
+        axiosPrivate.get("/policy/list").then((response)=>setPolicies(response.data))
+    }, [policies]);
 
     return (
         <>
@@ -28,7 +27,7 @@ function Policies() {
                 open={openDescription}
                 onClose={()=>setOpenDescription(false)}
             >
-            <PolicyDescription policyData={policyData} userData={userData}/>
+            <PolicyDescription policyData={policyData} userData={userData} ApplyButton={ApplyButton} />
             </Modal>
             <div className="container-3a">
                 <div className="container-3a1">
@@ -39,45 +38,41 @@ function Policies() {
                         <div className="aa" id='a4'>Tenure</div>
                         <div className="aa" id='a5'>Premium</div>
                     </div>
+                    {
+                     policies.map((policy)=>(
+                        <div className="body-3a" key={policy.id}>
+                            <div className="ba baa1">
+                                <img className="a-img" src="./b1.png" alt="" />
+                                <p className='a-imgtag' onClick={()=>{
+                                    // console.log(policy.id)
+                                    setPolicyData(policy);
+                                    setOpenDescription(true);
+                                }}>Plan Details</p>
+                            </div>
+                            <div className="ba baa2">
+                                <p className="lifecover">{policy.life_cover}</p>
+                            </div>
+                            <div className="ba baa3">
+                                <p className="age">
+                                    {policy.min_age}-{policy.max_age} year
+                                </p>
+                            </div>
+                            <div className="ba baa4">
+                                <p className="claimsettled">
+                                    {policy.tenure} years
+                                </p>
+                            </div>
+                            <div className="ba baa5">
+                                <button className="payment">
+                                    Rs.{policy.premium}
+                                </button>
+                            </div>
+                        </div>
+                     ))   
+                    }
+                    
 
-                    <div className="body-3a">
-                        <div className="ba baa1">
-                            <img className="a-img" src="./b1.png" alt="" />
-                            <p className='a-imgtag' onClick={()=>{
-                                setPolicyData({
-                                    desc: "Pehli Policy is a term insurance plan that takes care of your protection and savings needs for securing the future of your children. As a parent, one of your most important goals would be to make sure that your children have a bright future and lead their lives comfortably. These plans can help you achieve this by saving for your children’s higher education at a prestigious university.",
-                                    minAge: 12,
-                                    maxAge: 60,
-                                    profession: "student",
-                                    name: "pehli Policy",
-                                    registrationFee: 199,
-                                    premium: 2999,
-                                    tenure: 20,
-                                });
-                                setOpenDescription(true);
-                            }}>Plan Details</p>
-                        </div>
-                        <div className="ba baa2">
-                            <p className="lifecover">50 Lakh</p>
-                        </div>
-                        <div className="ba baa3">
-                            <p className="age">
-                                99 yrs
-                            </p>
-                        </div>
-                        <div className="ba baa4">
-                            <p className="claimsettled">
-                                97.9%
-                            </p>
-                        </div>
-                        <div className="ba baa5">
-                            <button className="payment">
-                                ₹10,863
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className="body-3a">
+                    {/* <div className="body-3a">
                         <div className="ba baa1">
                             <img className="a-img" src="./b2.png" alt="" />
                             <p className='a-imgtag'>Plan Details</p>
@@ -201,7 +196,7 @@ function Policies() {
                                 ₹12,719
                             </button>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className="container-3a2">

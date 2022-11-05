@@ -12,21 +12,21 @@ function PolicyDescription(props) {
     if (modelState === "decsription") {
         return (
             <div className='PolicyDescription__container'>
-                <div className='PolicyDescription__name'><h1>{props.policyData.name}</h1></div>
+                <div className='PolicyDescription__name'><h1>{props.policyData.policy_name}</h1></div>
                 <div className='PolicyDescription__description'>
                     <h3>Policy Description</h3>
-                    <p>{props.policyData.desc}</p>
+                    <p>{props.policyData.policy_description}</p>
                 </div>
                 <div className='PolicyDescription__eligibility'>
                     <h3>Eligibility</h3>
                     <div className='PolicyDescription__dataBlock PolicyDescription__bottomBorder'>
-                        <strong className=' PolicyDescription__leftDataBlock'>minimum Age : </strong> {props.policyData.minAge} years<br />
+                        <strong className=' PolicyDescription__leftDataBlock'>minimum Age : </strong> {props.policyData.min_age} years<br />
                     </div>
                     <div className='PolicyDescription__dataBlock PolicyDescription__bottomBorder'>
-                        <strong className=' PolicyDescription__leftDataBlock'>maximum Age : </strong> {props.policyData.maxAge} years<br />
+                        <strong className=' PolicyDescription__leftDataBlock'>maximum Age : </strong> {props.policyData.max_age} years<br />
                     </div>
                     <div className='PolicyDescription__dataBlock'>
-                        <strong className=' PolicyDescription__leftDataBlock'>Ocupation : </strong> {props.policyData.profession} <br />
+                        <strong className=' PolicyDescription__leftDataBlock'>Ocupation : </strong> {props.policyData.occupation} <br />
                     </div>
                 </div>
                 <div className='PolicyDescription__paymentDetails'>
@@ -39,7 +39,7 @@ function PolicyDescription(props) {
                     </div>
                 </div>
                 {
-                    props.policyData.ApplyButton==1
+                    props.ApplyButton==1
                     ?<div className='PolicyDescription__apply'>
                         <button onClick={() => setModelState("request")}>
                             Apply

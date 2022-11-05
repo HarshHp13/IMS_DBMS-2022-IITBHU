@@ -1,6 +1,6 @@
 import {Modal} from '@mui/material'
-import React,{useState} from 'react'
-import { Link } from 'react-router-dom';
+import React,{useEffect,useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 // import Login from '../pages/Login';
 import './Navbar.css'
 // import Box from '@mui/material/Box';
@@ -17,8 +17,13 @@ import User from '@mui/icons-material/Person' ;
 import Agent from '@mui/icons-material/SupportAgent';
 import LoginAdmin from '../pages/LoginAdmin';
 import LoginUser from '../pages/LoginUser';
+import UseAxiosPrivate from '../hooks/useAxiosPrivate';
+import UseAuth from '../hooks/useAuth';
 
 function Navbar() {
+  const navigate=useNavigate()
+  const axiosPrivate=UseAxiosPrivate()
+  const {auth, setAuth}=UseAuth()
   const [anchorEl, setAnchorEl] = useState(null);
   const [openUser, setOpenUser] = useState(false);
    const [openAdmin, setOpenAdmin] = useState(false);
@@ -28,6 +33,8 @@ function Navbar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
+
   const loginOpen=Boolean(anchorEl)
   return (
 
@@ -40,7 +47,7 @@ function Navbar() {
     </Modal> */}
     <Modal
       open={openAdmin}
-      onClose={()=>setOpenAdmin(false)}
+      onClose={()=>{setOpenAdmin(false)}}
     >
       <LoginAdmin />
     </Modal>
@@ -126,7 +133,13 @@ function Navbar() {
             behavior: 'smooth'
           });
         }}>Contact Us</h3>
-        <h3 className='navbar__link' onClick={handleClick} >Login</h3>
+        {
+          auth.isAuthenticated
+          ?<h3 className='navbar__link' onClick={()=>{navigate("/userProfile")}} >{auth.user?.first_name}</h3>
+          :<h3 className='navbar__link' onClick={handleClick} >Login</h3>
+        }
+        {/* <h3 className='navbar__link' onClick={handleClick} >Login</h3> */}
+        
     </div>
     </>
   )

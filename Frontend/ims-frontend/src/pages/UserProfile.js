@@ -1,10 +1,16 @@
 import React, {useState} from 'react';
 import './UserProfile.css'
-import {Modal} from '@mui/material'
+import {Button, Modal} from '@mui/material'
 import PolicyDetails from './PolicyDetails';
 import PolicyDescription from './PolicyDescription';
+// import axios from '../services/axios';
+import UseAxiosPrivate from '../hooks/useAxiosPrivate';
+import { useNavigate } from 'react-router-dom';
+import UseAuth from '../hooks/useAuth';
 
 function UserProfile() {
+    const navigate=useNavigate()
+    const {auth, setAuth}=UseAuth()
     const [openDescription, setOpenDescription] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
     const [ApprovedPolicyData, setApprovedPolicyData] = useState({
@@ -41,6 +47,16 @@ function UserProfile() {
         state: "Haryana",
         zipcode: "121005",
     }
+
+    const logoutHandler=()=>{
+        setAuth(prev=>{
+            return {...prev, access_token:"", refresh_token:"", isAuthenticated:false}
+        })
+        navigate("/")
+        console.log(auth)
+        
+    }
+
     return (
         <>
         <Modal
@@ -232,6 +248,7 @@ function UserProfile() {
                     }}>Proceed</button>
                 </div>
             </div>
+            <Button onClick={()=>logoutHandler()}>Logout</Button>
         </div>
     </>
     );

@@ -13,8 +13,6 @@ const RefreshToken = () => {
             }
         })
         setAuth(prev=>{
-            console.log(JSON.stringify(prev))
-            console.log(response.headers.get('access_token'))
             return {...prev, access_token: response.headers.get('access_token')}
         })
         return response.headers.get('access_token');
