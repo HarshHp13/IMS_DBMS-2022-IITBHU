@@ -122,10 +122,19 @@ function UserProfile() {
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
                         <div className='UserProfile__left_dataBlock UserProfile__pointer'>
-                            KIC Life eShield
+                            Pehli Policy
                         </div>
                     </div>
-                    <button className='UserProfile__button' onClick={()=>setOpenDetails(true)}>Details</button>
+                    <button className='UserProfile__button' onClick={()=>{
+                        setApprovedPolicyData({
+                            name: "Pehli Policy",
+                            premium: 1100,
+                            premiumCount: 12,
+                            sumAssurance: 4000000, // in Rs
+                            tenure: 60, // in years
+                        });
+                        setOpenDetails(true);
+                    }}>Details</button>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
@@ -133,7 +142,16 @@ function UserProfile() {
                         Aviva i-Life
                         </div>
                     </div>
-                    <button className='UserProfile__button' onClick={()=>setOpenDetails(true)}>Details</button>
+                    <button className='UserProfile__button' onClick={()=>{
+                        setApprovedPolicyData({
+                            name: "Aviva i-Life",
+                            premium: 2100,
+                            premiumCount: 4,
+                            sumAssurance: 10000000, // in Rs
+                            tenure: 40, // in years
+                        });
+                        setOpenDetails(true);
+                    }}>Details</button>
                 </div>
             </div>
             <div className='UserProfile__requestedPolicies'>
