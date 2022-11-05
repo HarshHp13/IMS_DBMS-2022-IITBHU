@@ -22,7 +22,7 @@
 .AgentProfile__picture{
     height: 70px;
     width: 70px;
-    box-shadow: 0px 0px 1px;
+    box-shadow: 0px 0px 2px;
 }
 
 .AgentProfile__name{

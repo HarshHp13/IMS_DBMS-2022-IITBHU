@@ -8,7 +8,6 @@ import Select from '@mui/material/Select';
 
 function PolicyDescription(props) {
     const [modelState, setModelState] = useState("decsription");
-
     if (modelState === "decsription") {
         return (
             <div className='PolicyDescription__container'>

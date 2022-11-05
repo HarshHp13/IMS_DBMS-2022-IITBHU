@@ -28,7 +28,7 @@ function App() {
       <Route path= '/about' element={<About />} />
       <Route path= '/policies' element={<Policies />} />
       <Route path= '/userProfile' element={<UserProfile />} />
-      <Route path= '/agentProfile' element={<AgentProfile />} />
+      <Route path= {'/agentProfile'} element={<AgentProfile />} />
     </Routes>
     <Footer />
     </>

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import './UserProfile.css'
 import { Modal } from '@mui/material'
+import './UserProfile.css'
 import PolicyDetails from './PolicyDetails';
 import PolicyDescription from './PolicyDescription';
+import { useLocation } from 'react-router-dom';
 
 function UserProfile() {
+    // const { state } = useLocation();
+    const location = useLocation();
+    console.log(location.state.userData.email);
+    // console.log(location.state.userData.email);
     const [openDescription, setOpenDescription] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
     const [ApprovedPolicyData, setApprovedPolicyData] = useState({
@@ -13,6 +18,7 @@ function UserProfile() {
         premiumCount: null,
         sumAssurance: null, // in Rs
         tenure: null,
+        agentName: null,
     });
     const [policyData, setPolicyData] = useState({
         desc: null,
@@ -58,7 +64,7 @@ function UserProfile() {
             <div className='UserProfile__container'>
                 <div className='UserProfile__user'>
                     <div className='UserProfile__picture'></div>
-                    <div className='UserProfile__name'>{userData.firstName} {userData.middleName} {userData.lastName}</div>
+                    <div className='UserProfile__name'>{location.state.userData.firstName} {location.state.userData.middleName} {location.state.userData.lastName}</div>
                 </div>
                 <div className='UserProfile__userData'>
                     <div className='UserProfile__dataBlock'>
@@ -66,7 +72,7 @@ function UserProfile() {
                             <strong>Email:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__email'>
-                            {userData.email}
+                            {location.state.userData.email}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -74,7 +80,7 @@ function UserProfile() {
                             <strong>Date of Birth:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__dateOfBirth'>
-                            {userData.date_of_birth}
+                            {location.state.userData.date_of_birth}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -82,7 +88,7 @@ function UserProfile() {
                             <strong>Age:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__age'>
-                            {userData.age}
+                            {location.state.userData.age}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -90,7 +96,7 @@ function UserProfile() {
                             <strong>Referrals:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__referrals'>
-                            {userData.referrals}
+                            {location.state.userData.referrals}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -98,7 +104,7 @@ function UserProfile() {
                             <strong>phone:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__phone'>
-                            {userData.phone}
+                            {location.state.userData.phone}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -106,9 +112,9 @@ function UserProfile() {
                             <strong>Address:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__address'>
-                            {userData.house}<br />
-                            {userData.street}<br />
-                            {userData.city}, {userData.state} - {userData.zipcode}
+                            {location.state.userData.house}<br />
+                            {location.state.userData.street}<br />
+                            {location.state.userData.city}, {location.state.userData.state} - {location.state.userData.zipcode}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -116,7 +122,7 @@ function UserProfile() {
                             <strong>Profession:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__profession'>
-                            Software Developer
+                            {location.state.userData.profession}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -124,7 +130,7 @@ function UserProfile() {
                             <strong>Income:</strong>
                         </div>
                         <div className='UserProfile__right_data Block UserProfile__income'>
-                            13.6 lakh PA
+                            {location.state.userData.income}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -132,7 +138,23 @@ function UserProfile() {
                             <strong>Refferal Code:</strong>
                         </div>
                         <div className='UserProfile__right_data Block UserProfile__income'>
-                            ${userData.id}#{userData.firstName}
+                            ${location.state.userData.id}#{location.state.userData.firstName}
+                        </div>
+                    </div>
+                    <div className='UserProfile__dataBlock'>
+                        <div className='UserProfile__left_dataBlock'>
+                            <strong>Gender:</strong>
+                        </div>
+                        <div className='UserProfile__right_data Block UserProfile__gender'>
+                            {location.state.userData.gender}
+                        </div>
+                    </div>
+                    <div className='UserProfile__dataBlock'>
+                        <div className='UserProfile__left_dataBlock'>
+                            <strong>Branch:</strong>
+                        </div>
+                        <div className='UserProfile__right_data Block UserProfile__branch'>
+                            {location.state.userData.branch}
                         </div>
                     </div>
                 </div>
@@ -163,6 +185,7 @@ function UserProfile() {
                                 premiumCount: 12,
                                 sumAssurance: 4000000, // in Rs
                                 tenure: 60, // in years
+                                agentName: "Bheem pal",
                             });
                             setOpenDetails(true);
                         }}>Status</button>
@@ -192,6 +215,7 @@ function UserProfile() {
                                 premiumCount: 4,
                                 sumAssurance: 10000000, // in Rs
                                 tenure: 40, // in years
+                                agentName: "Rati pal",
                             });
                             setOpenDetails(true);
                         }}>Status</button>
@@ -220,18 +244,24 @@ function UserProfile() {
                                 Approved
                             </div>
                         </div>
-                        <button className='UserProfile__button' onClick={() => {
-                            setApprovedPolicyData({
-                                name: "KIC Life eShield",
-                                premium: 1650,
-                                premiumCount: 0,
-                                sumAssurance: 3000000, // in Rs
-                                tenure: 40, // in years
-                            });
-                            setOpenDetails(true);
-                        }}>Proceed</button>
+                        {
+                            location.state.show === 1
+                                ? <button className='UserProfile__button' onClick={() => {
+                                    setApprovedPolicyData({
+                                        name: "KIC Life eShield",
+                                        premium: 1650,
+                                        premiumCount: 0,
+                                        sumAssurance: 3000000, // in Rs
+                                        tenure: 40, // in years
+                                        agentName: "Jagat pal",
+                                    });
+                                    setOpenDetails(true);
+                                }}>Proceed</button>
+                                : <div></div>
+                        }
                     </div>
                 </div>
+
             </div>
         </>
     );

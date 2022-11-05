@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './PolicyDetails.css'
 
 const PolicyDetails = (props) => {
@@ -6,6 +7,7 @@ const PolicyDetails = (props) => {
     const firstName = "Harshit";
     const middleName = null;
     const lastName = "Singh";
+    const navigate = useNavigate()
     if (popUp === "PolicyDetails") {
         return (
             <div className='PolicyDetails__container'>
@@ -47,6 +49,28 @@ const PolicyDetails = (props) => {
                             <strong>Premium :</strong>
                         </div>
                         {props.ApprovedPolicyData.premium} Rs.
+                    </div>
+                    <div className='PolicyDetails__dataBlock'>
+                        <div className='PolicyDetails__leftDataBlock'>
+                            <strong>Agent :</strong>
+                        </div>
+                        <div className='agent' onClick={() => {
+                            navigate("/agentProfile", {
+                                state: {
+                                    agentData: {
+                                        id: 1,
+                                        firstName: "Harshit",
+                                        middleName: null,
+                                        lastName: "Singh",
+                                        email: "artofharry00@gmail.com",
+                                        phone: "9910279337",
+                                    },
+                                    show: 0,
+                                }
+                            })
+                        }}>
+                            {props.ApprovedPolicyData.agentName}
+                        </div>
                     </div>
                 </div>
                 <div>
