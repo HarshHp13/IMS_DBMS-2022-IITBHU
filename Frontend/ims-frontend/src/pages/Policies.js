@@ -52,7 +52,7 @@ function Policies() {
                                     registrationFee: 199,
                                     premium: 2999,
                                     tenure: 20,
-                                })
+                                });
                                 setOpenDescription(true);
                             }}>Plan Details</p>
                         </div>

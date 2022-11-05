@@ -30,15 +30,12 @@ function PolicyDescription(props) {
                     </div>
                 </div>
                 <div className='PolicyDescription__paymentDetails'>
-                    <h1>Payment Details</h1>
-                    <div className='PolicyDescription__dataBlock PolicyDescription__bottomBorder'>
-                        <strong className=' PolicyDescription__leftDataBlock'>Registeration Fee : </strong> Rs. {props.policyData.registrationFee} <br />
-                    </div>
+                    <h3>Details</h3>
                     <div className='PolicyDescription__dataBlock PolicyDescription__bottomBorder'>
                         <strong className=' PolicyDescription__leftDataBlock'>Premium : </strong> Rs. {props.policyData.premium} <br />
                     </div>
                     <div className='PolicyDescription__dataBlock'>
-                        <strong className=' PolicyDescription__leftDataBlock'>Premium : </strong> {props.policyData.tenure} years <br />
+                        <strong className=' PolicyDescription__leftDataBlock'>Tenure : </strong> {props.policyData.tenure} years <br />
                     </div>
                 </div>
                 <div className='PolicyDescription__apply'>
@@ -52,7 +49,7 @@ function PolicyDescription(props) {
     else if (modelState === "request") {
         return (
             <div className='PolicyDescription__container'>
-                Your request has successfully sent. We shall contact you soon and let you know if your request is approved or not. Thank you for using AHD insurance company.
+                Your request has successfully sent. We shall contact you soon and let you know if your request is approved or not. Thank you for using IMS insurance company.
             </div>
         )
     }

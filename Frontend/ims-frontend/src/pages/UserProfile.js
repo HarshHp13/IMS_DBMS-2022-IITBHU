@@ -1,84 +1,102 @@
 import React, {useState} from 'react';
 import './UserProfile.css'
 import {Modal} from '@mui/material'
-import StartPolicy from './StartPolicy'
+import PolicyDetails from './PolicyDetails';
 
 function UserProfile() {
-    const [openTransaction, setOpenTransaction] = useState(false);
-    const id = 1;
-    const firstName = "Harshit";
-    const lastName = "Singh";
-    const email = "artofharry00@gmail.com";
+    const [openDetails, setOpenDetails] = useState(false);
+    const [ApprovedPolicyData, setApprovedPolicyData] = useState({
+        name: null,
+        premium: null,
+        premiumCount: null,
+        sumAssurance: null, // in Rs
+        tenure: null,
+    });
+    let userData={
+        id: 1,
+        firstName: "Harshit",
+        middleName: null,
+        lastName: "Singh",
+        email: "artofharry00@gmail.com",
+        date_of_birth: "18th January, 2000",
+        age: "22",
+        referrals: 4,
+        phone: "9910279337",
+        house: "House no. 154",
+        street: "street no. 8, tigaon Road, near RK-Tower",
+        city: "Faridabad",
+        state: "Haryana",
+        zipcode: "121005",
+    }
     return (
         <>
         <Modal
-            open={openTransaction}
-            onClose={()=>setOpenTransaction(false)}
+            open={openDetails}
+            onClose={()=>setOpenDetails(false)}
         >
-        <StartPolicy></StartPolicy>
+            <PolicyDetails ApprovedPolicyData={ApprovedPolicyData} userData={userData}></PolicyDetails>
         </Modal>
         <div className='UserProfile__container'>
             <div className='UserProfile__user'>
                 <div className='UserProfile__picture'></div>
-                <div className='UserProfile__name'>{firstName} {lastName}</div>
+                <div className='UserProfile__name'>{userData.firstName} {userData.middleName} {userData.lastName}</div>
             </div>
             <div className='UserProfile__userData'>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Email:</strong>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__email'>
-                        {email}
+                    <div className='UserProfile__right_dataBlock UserProfile__email'>
+                        {userData.email}
                     </div>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Date of Birth:</strong>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__dateOfBirth'>
-                        18th January, 2000
+                    <div className='UserProfile__right_dataBlock UserProfile__dateOfBirth'>
+                        {userData.date_of_birth}
                     </div>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Age:</strong>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__age'>
-                        22
+                    <div className='UserProfile__right_dataBlock UserProfile__age'>
+                        {userData.age}
                     </div>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Referrals:</strong>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__referrals'>
-                        4
+                    <div className='UserProfile__right_dataBlock UserProfile__referrals'>
+                        {userData.referrals}
                     </div>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__left_dataBlock'>
                         <strong>phone:</strong>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__phone'>
-                        9910279337
+                    <div className='UserProfile__right_dataBlock UserProfile__phone'>
+                        {userData.phone}
                     </div>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Address:</strong>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__address'>
-                        House no. 154<br />
-                        street no. 8, tigaon Road<br />
-                        near RK-Tower<br />
-                        Faridabad, Haryana - 121005
+                    <div className='UserProfile__right_dataBlock UserProfile__address'>
+                        {userData.house}<br />
+                        {userData.street}<br />
+                        {userData.city}, {userData.state} - {userData.zipcode}
                     </div>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Profession:</strong>
                     </div>
-                    <div className='UserProfile__left_dataBlock UserProfile__profession'>
+                    <div className='UserProfile__right_dataBlock UserProfile__profession'>
                         Software Developer
                     </div>
                 </div>
@@ -86,7 +104,7 @@ function UserProfile() {
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Income:</strong>
                     </div>
-                    <div className='UserProfile__left_data Block UserProfile__income'>
+                    <div className='UserProfile__right_data Block UserProfile__income'>
                         13.6 lakh PA
                     </div>
                 </div>
@@ -94,8 +112,8 @@ function UserProfile() {
                     <div className='UserProfile__left_dataBlock'>
                         <strong>Refferal Code:</strong>
                     </div>
-                    <div className='UserProfile__left_data Block UserProfile__income'>
-                        ${id}#{firstName}
+                    <div className='UserProfile__right_data Block UserProfile__income'>
+                        ${userData.id}#{userData.firstName}
                     </div>
                 </div>
             </div>
@@ -107,7 +125,7 @@ function UserProfile() {
                             KIC Life eShield
                         </div>
                     </div>
-                    <button className='UserProfile__button'>Details</button>
+                    <button className='UserProfile__button' onClick={()=>setOpenDetails(true)}>Details</button>
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
@@ -115,7 +133,7 @@ function UserProfile() {
                         Aviva i-Life
                         </div>
                     </div>
-                    <button className='UserProfile__button'>Details</button>
+                    <button className='UserProfile__button' onClick={()=>setOpenDetails(true)}>Details</button>
                 </div>
             </div>
             <div className='UserProfile__requestedPolicies'>
@@ -125,33 +143,20 @@ function UserProfile() {
                         <div className='UserProfile__left_dataBlock UserProfile__pointer'>
                             KIC Life eShield: 
                         </div>
-                        <div className='UserProfile__left_data Block UserProfile__income'>
+                        <div className='UserProfile__right_data Block UserProfile__income'>
                             Approved
                         </div>
                     </div>
-                    <button className='UserProfile__button' onClick={()=>setOpenTransaction(true)}>Proceed</button>
-                </div>
-                <div className='UserProfile__dataBlock'>
-                    <div className='UserProfile__requestPolicyInfo'>
-                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
-                            KIC Life eShield: 
-                        </div>
-                        <div className='UserProfile__left_data Block UserProfile__income'>
-                            Approved
-                        </div>
-                    </div>
-                    <button className='UserProfile__button'>Proceed</button>
-                </div>
-                <div className='UserProfile__dataBlock'>
-                    <div className='UserProfile__requestPolicyInfo'>
-                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
-                            KIC Life eShield: 
-                        </div>
-                        <div className='UserProfile__left_data Block UserProfile__income'>
-                            Approved
-                        </div>
-                    </div>
-                    <button className='UserProfile__button'>Proceed</button>
+                    <button className='UserProfile__button' onClick={()=>{
+                        setApprovedPolicyData({
+                            name: "KIC Life eShield",
+                            premium: 1650,
+                            premiumCount: 0,
+                            sumAssurance: 3000000, // in Rs
+                            tenure: 40, // in years
+                        });
+                        setOpenDetails(true);
+                    }}>Proceed</button>
                 </div>
             </div>
         </div>

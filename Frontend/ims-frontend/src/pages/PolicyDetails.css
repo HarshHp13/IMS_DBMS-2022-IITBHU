@@ -1,4 +1,4 @@
-.StartPolicy__container{
+.PolicyDetails__container{
     display: flex;
     flex-direction: column;
     width: 800px;
@@ -10,25 +10,25 @@
     background-color: white;
 }
 
-.StartPolicy__dataBlock{
+.PolicyDetails__dataBlock{
     display: flex;
     padding: 10px;
     padding-left: 0px;
 }
 
-.StartPolicy__leftDataBlock{
-    width: 200px;
+.PolicyDetails__leftDataBlock{
+    width: 150px;
 }
 
-.StartPolicy__bottomBorder{
+.PolicyDetails__bottomBorder{
     border-bottom: 1.5px solid rgba(0,0,0,0.2);
 }
 
-.StartPolicy__details{
+.PolicyDetails__details{
     padding-bottom: 10px;
     border-bottom: 1.5px solid rgba(0,0,0,0.6);
 }
 
-.StartPolicy__button{
+.PolicyDetails__button{
     margin-top: 10px;
 }
