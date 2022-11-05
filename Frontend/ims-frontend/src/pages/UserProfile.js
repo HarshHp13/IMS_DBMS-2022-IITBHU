@@ -57,6 +57,14 @@ function UserProfile() {
                     </div>
                     <div className='UserProfile__dataBlock'>
                         <div className='UserProfile__left_dataBlock'>
+                            <strong>Marrital Status:</strong>
+                        </div>
+                        <div className='UserProfile__right_dataBlock UserProfile__marritalStatus'>
+                            {location.state.userData.marrital_status}
+                        </div>
+                    </div>
+                    <div className='UserProfile__dataBlock'>
+                        <div className='UserProfile__left_dataBlock'>
                             <strong>Referrals:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__referrals'>

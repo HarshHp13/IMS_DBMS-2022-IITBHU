@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Navbar() {
-  const auth = "agent";
+  const auth = "user";
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [openUser, setOpenUser] = useState(false);
@@ -145,6 +145,7 @@ function Navbar() {
                     email: "artofarsla00@gmail.com",
                     date_of_birth: "18th January, 2000",
                     age: "22",
+                    marrital_status: "single",
                     referrals: 4,
                     phone: "9910279337",
                     house: "House no. 154",
