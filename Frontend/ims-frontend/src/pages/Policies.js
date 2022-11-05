@@ -14,7 +14,7 @@ function Policies() {
         registrationFee: null,
         premium: null,
         tenure: null,
-        ApplyButton: 0,
+        ApplyButton: 1,
     });
     let userData={
         firstName: "Harshit",
@@ -53,6 +53,7 @@ function Policies() {
                                     registrationFee: 199,
                                     premium: 2999,
                                     tenure: 20,
+                                    ApplyButton: 1,
                                 });
                                 setOpenDescription(true);
                             }}>Plan Details</p>
