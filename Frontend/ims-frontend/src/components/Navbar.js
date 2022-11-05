@@ -21,6 +21,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Navbar() {
+  const auth = "agent";
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [openUser, setOpenUser] = useState(false);
@@ -129,61 +130,65 @@ function Navbar() {
             behavior: 'smooth'
           });
         }}>Contact Us</h3>
-        {/* <h3 className='navbar__link' onClick={handleClick} >Login</h3> */}
-        {/* <h3 className='navbar__link' onClick={() => {
-          navigate("/userProfile", {
-            state: {
-              userData: {
-                id: 7,
-                firstName: "Arsla",
-                middleName: null,
-                lastName: "Bhagat",
-                email: "artofarsla00@gmail.com",
-                date_of_birth: "18th January, 2000",
-                age: "22",
-                referrals: 4,
-                phone: "9910279337",
-                house: "House no. 154",
-                street: "street no. 8, tigaon Road, near RK-Tower",
-                city: "Faridabad",
-                state: "Haryana",
-                professoin: "Ganja fukna",
-                income: "13.6",
-                gender: "Female",
-                branch: "IMS-Delhi",
-                zipcode: "121005",
-              },
-              show: 1,
-            }
-          })
-        }}>Arsla</h3> */}
-        <h3 className='navbar__link' onClick={() => {
-          navigate("/agentProfile", {
-            state: {
-              agentData: {
-                id: 2,
-                firstName: "Harsh",
-                middleName: null,
-                lastName: "Dayal",
-                email: "harshDayal@gmail.com",
-                date_of_birth: "18th January, 2000",
-                age: "22",
-                referrals: 4,
-                phone: "9910279337",
-                house: "House no. 154",
-                street: "street no. 8, tigaon Road, near RK-Tower",
-                city: "Faridabad",
-                state: "Haryana",
-                zipcode: "121005",
-                professoin: "Ganja fukna",
-                income: "13.6",
-                gender: "Male",
-                branch: "IMS-Delhi",
-              },
-              show: 1,
-            }
-          })
-        }}>Harsh</h3>
+        {
+          auth==="none"
+          ? <h3 className='navbar__link' onClick={handleClick} >Login</h3>
+          : auth==="user"
+            ? <h3 className='navbar__link' onClick={() => {
+              navigate("/userProfile", {
+                state: {
+                  userData: {
+                    id: 7,
+                    firstName: "Arsla",
+                    middleName: null,
+                    lastName: "Bhagat",
+                    email: "artofarsla00@gmail.com",
+                    date_of_birth: "18th January, 2000",
+                    age: "22",
+                    referrals: 4,
+                    phone: "9910279337",
+                    house: "House no. 154",
+                    street: "street no. 8, tigaon Road, near RK-Tower",
+                    city: "Faridabad",
+                    state: "Haryana",
+                    professoin: "Ganja fukna",
+                    income: "13.6",
+                    gender: "Female",
+                    branch: "IMS-Delhi",
+                    zipcode: "121005",
+                  },
+                  show: 1,
+                }
+              })
+            }}>Arsla</h3>
+            : <h3 className='navbar__link' onClick={() => {
+              navigate("/agentProfile", {
+                state: {
+                  agentData: {
+                    id: 2,
+                    firstName: "Harsh",
+                    middleName: null,
+                    lastName: "Dayal",
+                    email: "harshDayal@gmail.com",
+                    date_of_birth: "18th January, 2000",
+                    age: "22",
+                    referrals: 4,
+                    phone: "9910279337",
+                    house: "House no. 154",
+                    street: "street no. 8, tigaon Road, near RK-Tower",
+                    city: "Faridabad",
+                    state: "Haryana",
+                    zipcode: "121005",
+                    professoin: "Ganja fukna",
+                    income: "13.6",
+                    gender: "Male",
+                    branch: "IMS-Delhi",
+                  },
+                  show: 1,
+                }
+              })
+            }}>Harsh</h3>
+        }
       </div>
     </>
   )
