@@ -90,23 +90,48 @@ function AgentProfile() {
             {
                 location.state?.show === 1
                     ? <div>
-                        <div className='AgentProfile__policyData AgentProfile_bottomBorder'>
-                            <h3>Your Clients</h3>
+                        <div className='AgentProfile__CompletePolicies AgentProfile_bottomBorder'>
+                            <h3>Complete Policies</h3>
                             <div className='AgentProfile__dataBlock'>
                                 <div className='AgentProfile__left_dataBlock'>
-                                    <strong>Complete Policies:</strong>
+                                    <strong>Policy</strong>
                                 </div>
-                                <div className='AgentProfile__right_dataBlock AgentProfile__completePolicies'>
-                                    3
+                                <div className='AgentProfile__right_dataBlock'>
+                                    <strong>Holder</strong>
                                 </div>
                             </div>
                             <div className='AgentProfile__dataBlock'>
+                                <div className='AgentProfile__requestPolicyInfo'>
+                                    <div className='AgentProfile__left_dataBlock policyName'>
+                                        <p>LIC</p>
+                                    </div>
+                                    <div className='AgentProfile__right_dataBlock userName'>
+                                        <p>Harshit Singh</p>
+                                    </div>
+                                </div>
+                                <button className='AgentProfile__button'>Details</button>
+                            </div>
+                        </div>
+                        <div className='AgentProfile__CompletePolicies AgentProfile_bottomBorder'>
+                            <h3>Running Policies</h3>
+                            <div className='AgentProfile__dataBlock'>
                                 <div className='AgentProfile__left_dataBlock'>
-                                    <strong>Current Policies:</strong>
+                                    <strong>Policy</strong>
                                 </div>
-                                <div className='AgentProfile__right_dataBlock AgentProfile__currentPolicies'>
-                                    1
+                                <div className='AgentProfile__right_dataBlock'>
+                                    <strong>Holder</strong>
                                 </div>
+                            </div>
+                            <div className='AgentProfile__dataBlock'>
+                                <div className='AgentProfile__requestPolicyInfo'>
+                                    <div className='AgentProfile__left_dataBlock policyName'>
+                                        <p>LIC</p>
+                                    </div>
+                                    <div className='AgentProfile__right_dataBlock userName'>
+                                        <p>Harshit Singh</p>
+                                    </div>
+                                </div>
+                                <button className='AgentProfile__button'>Details</button>
                             </div>
                         </div>
                         <div className='AgentProfile__Requests'>

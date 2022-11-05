@@ -12,54 +12,37 @@ function UserProfile() {
     // console.log(location.state.userData.email);
     const [openDescription, setOpenDescription] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
-    const [ApprovedPolicyData, setApprovedPolicyData] = useState({
-        name: null,
-        premium: null,
-        premiumCount: null,
-        sumAssurance: null, // in Rs
-        tenure: null,
-        agentName: null,
-    });
-    const [policyData, setPolicyData] = useState({
-        desc: null,
-        minAge: null,
-        maxAge: null,
-        profession: null,
-        name: null,
-        registrationFee: null,
-        premium: null,
-        tenure: null,
-        ApplyButton: 0,
-    });
-    let userData = {
-        id: 1,
-        firstName: "Harshit",
-        middleName: null,
-        lastName: "Singh",
-        email: "artofharry00@gmail.com",
-        date_of_birth: "18th January, 2000",
-        age: "22",
-        referrals: 4,
-        phone: "9910279337",
-        house: "House no. 154",
-        street: "street no. 8, tigaon Road, near RK-Tower",
-        city: "Faridabad",
-        state: "Haryana",
-        zipcode: "121005",
-    }
+    const [ApprovedPolicyData, setApprovedPolicyData] = useState({});
+    const [policyData, setPolicyData] = useState({});
+    // let userData = {
+    //     id: 1,
+    //     firstName: "Harshit",
+    //     middleName: null,
+    //     lastName: "Singh",
+    //     email: "artofharry00@gmail.com",
+    //     date_of_birth: "18th January, 2000",
+    //     age: "22",
+    //     referrals: 4,
+    //     phone: "9910279337",
+    //     house: "House no. 154",
+    //     street: "street no. 8, tigaon Road, near RK-Tower",
+    //     city: "Faridabad",
+    //     state: "Haryana",
+    //     zipcode: "121005",
+    // }
     return (
         <>
             <Modal
                 open={openDescription}
                 onClose={() => setOpenDescription(false)}
             >
-                <PolicyDescription policyData={policyData} userData={userData} />
+                <PolicyDescription policyData={policyData} userData={location.state.userData} />
             </Modal>
             <Modal
                 open={openDetails}
                 onClose={() => setOpenDetails(false)}
             >
-                <PolicyDetails ApprovedPolicyData={ApprovedPolicyData} userData={userData}></PolicyDetails>
+                <PolicyDetails ApprovedPolicyData={ApprovedPolicyData} userData={location.state.userData}></PolicyDetails>
             </Modal>
             <div className='UserProfile__container'>
                 <div className='UserProfile__user'>
@@ -122,7 +105,7 @@ function UserProfile() {
                             <strong>Profession:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__profession'>
-                            {location.state.userData.profession}
+                            {location.state.userData.professoin}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
