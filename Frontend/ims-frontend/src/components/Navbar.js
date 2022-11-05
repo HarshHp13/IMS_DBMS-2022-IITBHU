@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Navbar() {
-  const auth = "user";
+  const auth = "agent";
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [openUser, setOpenUser] = useState(false);

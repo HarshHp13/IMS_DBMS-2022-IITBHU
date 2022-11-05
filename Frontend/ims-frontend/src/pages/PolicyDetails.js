@@ -4,9 +4,6 @@ import './PolicyDetails.css'
 
 const PolicyDetails = (props) => {
     const [popUp, setPopUp] = useState("PolicyDetails");
-    const firstName = "Harshit";
-    const middleName = null;
-    const lastName = "Singh";
     const navigate = useNavigate()
     if (popUp === "PolicyDetails") {
         return (

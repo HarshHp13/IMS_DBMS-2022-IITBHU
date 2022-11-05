@@ -54,7 +54,7 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
-.agent, .user, .policy{
+.agent, .user, .policy, button{
   cursor: pointer;
 }
 
