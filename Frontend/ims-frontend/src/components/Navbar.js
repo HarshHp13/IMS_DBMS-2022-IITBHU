@@ -12,7 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 // import IconButton from '@mui/material/IconButton';
 // import Typography from '@mui/material/Typography';
 // import Tooltip from '@mui/material/Tooltip';
-import User from '@mui/icons-material/Person' ;
+import User from '@mui/icons-material/Person';
 // import Settings from '@mui/icons-material/VerifiedUser';
 import Agent from '@mui/icons-material/SupportAgent';
 import LoginAdmin from '../pages/LoginAdmin';
@@ -26,7 +26,7 @@ function Navbar() {
   const {auth, setAuth}=UseAuth()
   const [anchorEl, setAnchorEl] = useState(null);
   const [openUser, setOpenUser] = useState(false);
-   const [openAdmin, setOpenAdmin] = useState(false);
+  const [openAdmin, setOpenAdmin] = useState(false);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -39,26 +39,26 @@ function Navbar() {
   return (
 
     <>
-    {/* <Modal 
+      {/* <Modal 
     open={loginOpen}
     onClose={()=>setLoginOpen(false)}
     >
       <Login />
     </Modal> */}
-    <Modal
-      open={openAdmin}
-      onClose={()=>{setOpenAdmin(false)}}
-    >
-      <LoginAdmin />
-    </Modal>
-    <Modal
-      open={openUser}
-      onClose={()=>setOpenUser(false)}
-    >
-      <LoginUser />
-    </Modal>
+      <Modal
+        open={openAdmin}
+        onClose={() => setOpenAdmin(false)}
+      >
+        <LoginAdmin />
+      </Modal>
+      <Modal
+        open={openUser}
+        onClose={() => setOpenUser(false)}
+      >
+        <LoginUser />
+      </Modal>
 
-    <Menu
+      <Menu
         anchorEl={anchorEl}
         id="account-menu"
         open={loginOpen}
@@ -100,14 +100,14 @@ function Navbar() {
           <Avatar /> My account
         </MenuItem>
         <Divider /> */}
-        
-        <MenuItem onClick={()=>setOpenUser(true)} >
+
+        <MenuItem onClick={() => setOpenUser(true)} >
           <ListItemIcon>
             <User fontSize="small" />
           </ListItemIcon>
           User
         </MenuItem>
-        <MenuItem onClick={()=>setOpenAdmin(true)}>
+        <MenuItem onClick={() => setOpenAdmin(true)}>
           <ListItemIcon>
             <Agent fontSize="small" />
           </ListItemIcon>
@@ -121,12 +121,12 @@ function Navbar() {
         </MenuItem> */}
       </Menu>
 
-    <div className="navbar__container">
-        <h3 className='navbar__link'><Link className='link' to={'/'}>Home</Link></h3>    
+      <div className="navbar__container">
+        <h3 className='navbar__link'><Link className='link' to={'/'}>Home</Link></h3>
         <h3 className='navbar__link'><Link className='link' to={'/policies'}>Policies</Link></h3>
         {/* <h3 className='navbar__link'><Link className='link' to={'/'}>Active Plans</Link></h3> */}
         <h3 className='navbar__link'><Link className='link' to={'/about'}>About Us</Link></h3>
-        <h3 className='navbar__link right' onClick={()=>{
+        <h3 className='navbar__link right' onClick={() => {
           window.scrollBy({
             top: document.body.scrollHeight,
             left: 0,

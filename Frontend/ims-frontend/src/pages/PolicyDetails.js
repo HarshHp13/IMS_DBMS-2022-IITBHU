@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './PolicyDetails.css'
 
 const PolicyDetails = (props) => {
     const [popUp, setPopUp] = useState("PolicyDetails");
-    const firstName = "Harshit";
-    const middleName = null;
-    const lastName = "Singh";
+    const navigate = useNavigate()
     if (popUp === "PolicyDetails") {
         return (
             <div className='PolicyDetails__container'>
@@ -18,7 +17,7 @@ const PolicyDetails = (props) => {
                         <div className='PolicyDetails__leftDataBlock'>
                             <strong>User :</strong>
                         </div>
-                        {firstName} {middleName} {lastName}
+                        {props.userData.firstName} {props.userData.middleName} {props.userData.lastName}
                     </div>
                     {
                         props.ApprovedPolicyData.premiumCount === 0
@@ -48,15 +47,41 @@ const PolicyDetails = (props) => {
                         </div>
                         {props.ApprovedPolicyData.premium} Rs.
                     </div>
+                    <div className='PolicyDetails__dataBlock'>
+                        <div className='PolicyDetails__leftDataBlock'>
+                            <strong>Agent :</strong>
+                        </div>
+                        <div className='agent' onClick={() => {
+                            navigate("/agentProfile", {
+                                state: {
+                                    agentData: {
+                                        id: 1,
+                                        firstName: "Harshit",
+                                        middleName: null,
+                                        lastName: "Singh",
+                                        email: "artofharry00@gmail.com",
+                                        phone: "9910279337",
+                                    },
+                                    show: 0,
+                                }
+                            })
+                        }}>
+                            {props.ApprovedPolicyData.agentName}
+                        </div>
+                    </div>
                 </div>
-                <div>
                     {
-                        props.ApprovedPolicyData.premiumCount === 0
-                            ? <h3>Start your policy by Paying first premium</h3>
-                            : <h3>Pay your next premium</h3>
+                        props.show === 1
+                        ? props.ApprovedPolicyData.premiumCount === 0
+                            ? <div><h3>Start your policy by Paying first premium</h3>
+                                <button onClick={() => setPopUp("transaction")}>Continue</button>
+                                </div>
+                            : <div>
+                                <h3>Pay your next premium</h3>
+                                <button onClick={() => setPopUp("transaction")}>Continue</button>
+                            </div>
+                        : <div></div>
                     }
-                    <button onClick={() => setPopUp("transaction")}>Continue</button>
-                </div>
             </div>
         );
     }
