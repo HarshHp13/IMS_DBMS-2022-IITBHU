@@ -73,14 +73,18 @@ const PolicyDetails = (props) => {
                         </div>
                     </div>
                 </div>
-                <div>
                     {
-                        props.ApprovedPolicyData.premiumCount === 0
-                            ? <h3>Start your policy by Paying first premium</h3>
-                            : <h3>Pay your next premium</h3>
+                        props.show === 1
+                        ? props.ApprovedPolicyData.premiumCount === 0
+                            ? <div><h3>Start your policy by Paying first premium</h3>
+                                <button onClick={() => setPopUp("transaction")}>Continue</button>
+                                </div>
+                            : <div>
+                                <h3>Pay your next premium</h3>
+                                <button onClick={() => setPopUp("transaction")}>Continue</button>
+                            </div>
+                        : <div></div>
                     }
-                    <button onClick={() => setPopUp("transaction")}>Continue</button>
-                </div>
             </div>
         );
     }

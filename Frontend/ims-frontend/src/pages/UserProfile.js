@@ -23,7 +23,7 @@ function UserProfile() {
                 open={openDetails}
                 onClose={() => setOpenDetails(false)}
             >
-                <PolicyDetails ApprovedPolicyData={ApprovedPolicyData} userData={location.state.userData}></PolicyDetails>
+                <PolicyDetails ApprovedPolicyData={ApprovedPolicyData} userData={location.state.userData} show={location.state.show}></PolicyDetails>
             </Modal>
             <div className='UserProfile__container'>
                 <div className='UserProfile__user'>
