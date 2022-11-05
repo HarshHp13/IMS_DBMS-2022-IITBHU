@@ -14,6 +14,7 @@ function Policies() {
         registrationFee: null,
         premium: null,
         tenure: null,
+        ApplyButton: 0,
     });
     let userData={
         firstName: "Harshit",

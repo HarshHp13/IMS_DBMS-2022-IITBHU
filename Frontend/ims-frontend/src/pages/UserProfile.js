@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import './UserProfile.css'
 import {Modal} from '@mui/material'
 import PolicyDetails from './PolicyDetails';
+import PolicyDescription from './PolicyDescription';
 
 function UserProfile() {
+    const [openDescription, setOpenDescription] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
     const [ApprovedPolicyData, setApprovedPolicyData] = useState({
         name: null,
@@ -11,6 +13,17 @@ function UserProfile() {
         premiumCount: null,
         sumAssurance: null, // in Rs
         tenure: null,
+    });
+    const [policyData, setPolicyData] = useState({
+        desc: null,
+        minAge: null,
+        maxAge: null,
+        profession: null,
+        name: null,
+        registrationFee: null,
+        premium: null,
+        tenure: null,
+        ApplyButton: 0,
     });
     let userData={
         id: 1,
@@ -30,6 +43,12 @@ function UserProfile() {
     }
     return (
         <>
+        <Modal
+            open={openDescription}
+            onClose={()=>setOpenDescription(false)}
+        >
+        <PolicyDescription policyData={policyData} userData={userData}/>
+        </Modal>
         <Modal
             open={openDetails}
             onClose={()=>setOpenDetails(false)}
@@ -121,7 +140,19 @@ function UserProfile() {
                 <h3>Current Policies</h3>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
-                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
+                        <div className='UserProfile__left_dataBlock UserProfile__pointer' onClick={()=>{
+                                setPolicyData({
+                                    desc: "Pehli Policy is a term insurance plan that takes care of your protection and savings needs for securing the future of your children. As a parent, one of your most important goals would be to make sure that your children have a bright future and lead their lives comfortably. These plans can help you achieve this by saving for your children’s higher education at a prestigious university.",
+                                    minAge: 12,
+                                    maxAge: 60,
+                                    profession: "student",
+                                    name: "pehli Policy",
+                                    registrationFee: 199,
+                                    premium: 2999,
+                                    tenure: 20,
+                                });
+                                setOpenDescription(true);
+                            }}>
                             Pehli Policy
                         </div>
                     </div>
@@ -138,7 +169,19 @@ function UserProfile() {
                 </div>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
-                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
+                        <div className='UserProfile__left_dataBlock UserProfile__pointer' onClick={()=>{
+                                setPolicyData({
+                                    desc: "Pehli Policy is a term insurance plan that takes care of your protection and savings needs for securing the future of your children. As a parent, one of your most important goals would be to make sure that your children have a bright future and lead their lives comfortably. These plans can help you achieve this by saving for your children’s higher education at a prestigious university.",
+                                    minAge: 12,
+                                    maxAge: 60,
+                                    profession: "student",
+                                    name: "Aviva i-Life",
+                                    registrationFee: 199,
+                                    premium: 2999,
+                                    tenure: 20,
+                                });
+                                setOpenDescription(true);
+                            }}>
                         Aviva i-Life
                         </div>
                     </div>
@@ -158,7 +201,19 @@ function UserProfile() {
                 <h3>Requested Policies</h3>
                 <div className='UserProfile__dataBlock'>
                     <div className='UserProfile__requestPolicyInfo'>
-                        <div className='UserProfile__left_dataBlock UserProfile__pointer'>
+                        <div className='UserProfile__left_dataBlock UserProfile__pointer' onClick={()=>{
+                                setPolicyData({
+                                    desc: "Pehli Policy is a term insurance plan that takes care of your protection and savings needs for securing the future of your children. As a parent, one of your most important goals would be to make sure that your children have a bright future and lead their lives comfortably. These plans can help you achieve this by saving for your children’s higher education at a prestigious university.",
+                                    minAge: 12,
+                                    maxAge: 60,
+                                    profession: "student",
+                                    name: "KIC Life eShield",
+                                    registrationFee: 199,
+                                    premium: 2999,
+                                    tenure: 20,
+                                });
+                                setOpenDescription(true);
+                            }}>
                             KIC Life eShield: 
                         </div>
                         <div className='UserProfile__right_data Block UserProfile__income'>

@@ -38,11 +38,15 @@ function PolicyDescription(props) {
                         <strong className=' PolicyDescription__leftDataBlock'>Tenure : </strong> {props.policyData.tenure} years <br />
                     </div>
                 </div>
-                <div className='PolicyDescription__apply'>
-                    <button onClick={() => setModelState("request")}>
-                        Apply
-                    </button>
-                </div>
+                {
+                    props.policyData.ApplyButton==1
+                    ?<div className='PolicyDescription__apply'>
+                        <button onClick={() => setModelState("request")}>
+                            Apply
+                        </button>
+                    </div>
+                    :<div></div>
+                }
             </div>
         );
     }
