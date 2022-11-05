@@ -6,30 +6,11 @@ import PolicyDescription from './PolicyDescription';
 import { useLocation } from 'react-router-dom';
 
 function UserProfile() {
-    // const { state } = useLocation();
     const location = useLocation();
-    console.log(location.state.userData.email);
-    // console.log(location.state.userData.email);
     const [openDescription, setOpenDescription] = useState(false);
     const [openDetails, setOpenDetails] = useState(false);
     const [ApprovedPolicyData, setApprovedPolicyData] = useState({});
     const [policyData, setPolicyData] = useState({});
-    // let userData = {
-    //     id: 1,
-    //     firstName: "Harshit",
-    //     middleName: null,
-    //     lastName: "Singh",
-    //     email: "artofharry00@gmail.com",
-    //     date_of_birth: "18th January, 2000",
-    //     age: "22",
-    //     referrals: 4,
-    //     phone: "9910279337",
-    //     house: "House no. 154",
-    //     street: "street no. 8, tigaon Road, near RK-Tower",
-    //     city: "Faridabad",
-    //     state: "Haryana",
-    //     zipcode: "121005",
-    // }
     return (
         <>
             <Modal
@@ -244,7 +225,13 @@ function UserProfile() {
                         }
                     </div>
                 </div>
-
+                {
+                    location.state.show === 1
+                    ?<div>
+                        <button>logOut</button>
+                    </div>
+                    :<div></div>
+                }
             </div>
         </>
     );

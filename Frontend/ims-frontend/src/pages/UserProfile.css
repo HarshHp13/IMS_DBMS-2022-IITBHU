@@ -49,6 +49,10 @@
     cursor: pointer;
 }
 
+.UserProfile__requestedPolicies{
+    margin-bottom: 40px;
+}
+
 .UserProfile__requestPolicyInfo{
     display: flex;
     width: 100%;

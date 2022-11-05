@@ -130,7 +130,7 @@ function Navbar() {
           });
         }}>Contact Us</h3>
         {/* <h3 className='navbar__link' onClick={handleClick} >Login</h3> */}
-        <h3 className='navbar__link' onClick={() => {
+        {/* <h3 className='navbar__link' onClick={() => {
           navigate("/userProfile", {
             state: {
               userData: {
@@ -156,8 +156,8 @@ function Navbar() {
               show: 1,
             }
           })
-        }}>Arsla</h3>
-        {/* <h3 className='navbar__link' onClick={() => {
+        }}>Arsla</h3> */}
+        <h3 className='navbar__link' onClick={() => {
           navigate("/agentProfile", {
             state: {
               agentData: {
@@ -183,7 +183,7 @@ function Navbar() {
               show: 1,
             }
           })
-        }}>Harsh</h3> */}
+        }}>Harsh</h3>
       </div>
     </>
   )

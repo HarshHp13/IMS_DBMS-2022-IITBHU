@@ -39,7 +39,7 @@ function AgentProfile() {
                     </div>
                 </div>
                 {
-                    location.state?.show===1
+                    location.state?.show === 1
                         ? <div>
                             <div className='AgentProfile__dataBlock'>
                                 <div className='AgentProfile__left_dataBlock'>
@@ -144,19 +144,7 @@ function AgentProfile() {
                                     <strong>Requested by</strong>
                                 </div>
                             </div>
-                            <div className='AgentProfile__dataBlock'>
-                                <div className='AgentProfile__requestPolicyInfo'>
-                                    <div className='AgentProfile__left_dataBlock policyName'>
-                                        <p>LIC</p>
-                                    </div>
-                                    <div className='AgentProfile__right_dataBlock userName'>
-                                        <p>Harshit Singh</p>
-                                    </div>
-                                </div>
-                                <button className='AgentProfile__button'>Verified</button>
-                                <button className='AgentProfile__button'>Not Eligible</button>
-                            </div>
-                            <div className='AgentProfile__dataBlock'>
+                            <div className='AgentProfile__dataBlock AgentProfile__requestedPolicies'>
                                 <div className='AgentProfile__requestPolicyInfo'>
                                     <div className='AgentProfile__left_dataBlock policyName'>
                                         <p>Pehli IC</p>
@@ -191,9 +179,12 @@ function AgentProfile() {
                                         }}>Arsla Bhagat</p>
                                     </div>
                                 </div>
-                                <button className='AgentProfile__button'>Verified</button>
+                                <button className='AgentProfile__button'>Verify</button>
                                 <button className='AgentProfile__button'>Not Eligible</button>
                             </div>
+                        </div>
+                        <div>
+                            <button className='AgentProfile__button'>logOut</button>
                         </div>
                     </div>
                     : <div></div>

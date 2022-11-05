@@ -54,6 +54,12 @@
     border-bottom: 1.5px solid rgba(0,0,0,0.6);
 }
 
+
+.AgentProfile__requestedPolicies{
+    margin-bottom: 40px;
+}
+
+
 .AgentProfile__requestPolicyInfo{
     display: flex;
     width: 100%;
@@ -61,5 +67,6 @@
 
 .AgentProfile__button{
     width: 150px;
+    height: 32px;
     margin-left: 10px;
 }
