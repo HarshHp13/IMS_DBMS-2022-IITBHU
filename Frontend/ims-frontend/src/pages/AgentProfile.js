@@ -37,7 +37,7 @@ function AgentProfile() {
                 <div className='AgentProfile__top AgentProfile_bottomBorder'>
                     <div className='AgentProfile__agent'>
                         <div className='AgentProfile__picture'></div>
-                        <div className='AgentProfile__name'>{location.state?.agentData.firstName} {location.state?.agentData.middleName} {location.state?.agentData.lastName}</div>
+                        <div className='AgentProfile__name'>{location.state?.agentData.first_name} {location.state?.agentData.middle_name} {location.state?.agentData.last_name}</div>
                     </div>
                     {/* <div className='AgentProfile__stars'>
                     Rating : {activeStars}

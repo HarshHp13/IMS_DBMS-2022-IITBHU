@@ -40,3 +40,33 @@
     margin: 10px;
     margin-left: 0px;
 }
+
+.policyDesc__reviewing{
+    display: flex;
+    background-color: rgba(167, 26, 180, 0.478);
+    border-radius: 10px;
+    padding: 10px;
+}
+.policyDesc__current{
+    display: flex;
+    background-color: rgba(62, 180, 26, 0.478);
+    border-radius: 10px;
+    padding: 10px;
+}
+.policyDesc__rejected{
+    display: flex;
+    background-color: rgba(244, 83, 20, 0.478);;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.policyDesc__login{
+    display: flex;
+    background-color: rgba(244, 180, 20, 0.478);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.policyDesc__icon{
+    margin-right: 10px;
+}

@@ -3,23 +3,27 @@ import {Modal} from '@mui/material'
 import PolicyDescription from './PolicyDescription'
 import './Policies.css'
 import UseAxiosPrivate from '../hooks/useAxiosPrivate'
+import UseAuth from '../hooks/useAuth'
 
 function Policies() {
     const axiosPrivate=UseAxiosPrivate();
+    const {auth}=UseAuth()
     const [openDescription, setOpenDescription] = useState(false);
     const [policyData, setPolicyData] = useState(null);
+    const [approval, setApproval] = useState(null);
     const ApplyButton=1;
-    let userData={
-        firstName: "Harshit",
-        middleName: null,
-        lastName: "Singh",
-    }
+
     // axiosPrivate.get("/policy/list").then((res)=>console.log(res.data))
     const [policies, setPolicies] = useState([]);
 
     useEffect(() => {
+        const controller=new AbortController()
         axiosPrivate.get("/policy/list").then((response)=>setPolicies(response.data))
+        return()=>{controller.abort()}
     }, [policies]);
+
+    
+
 
     return (
         <>
@@ -27,7 +31,7 @@ function Policies() {
                 open={openDescription}
                 onClose={()=>setOpenDescription(false)}
             >
-            <PolicyDescription policyData={policyData} userData={userData} ApplyButton={ApplyButton} />
+            <PolicyDescription policyData={policyData} ApplyButton={ApplyButton} approval={approval}/>
             </Modal>
             <div className="container-3a">
                 <div className="container-3a1">
@@ -42,11 +46,15 @@ function Policies() {
                      policies.map((policy)=>(
                         <div className="body-3a" key={policy.id}>
                             <div className="ba baa1">
-                                <img className="a-img" src="./b1.png" alt="" />
-                                <p className='a-imgtag' onClick={()=>{
+                                <div  className='policiy__img'>
+                                    <h3>{policy.policy_name}</h3>
+                                </div>
+                                {/* <img className="a-img" src="./b1.png" alt="" /> */}
+                                <p className='a-imgtag' onClick={async ()=>{
                                     // console.log(policy.id)
                                     setPolicyData(policy);
                                     setOpenDescription(true);
+                                    
                                 }}>Plan Details</p>
                             </div>
                             <div className="ba baa2">

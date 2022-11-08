@@ -135,7 +135,16 @@ function Navbar() {
         }}>Contact Us</h3>
         {
           auth.isAuthenticated
-          ?<h3 className='navbar__link' onClick={()=>{navigate("/userProfile")}} >{auth.user?.first_name}</h3>
+          ?<h3 className='navbar__link' onClick={()=>{
+            if(auth.role==="USER"){
+              navigate("/userProfile",{state:{userData:auth.user,show:1}})
+            }
+            else if(auth.role==="AGENT"){
+              navigate("/agentProfile",{state:{agentData:auth.user,show:1}})
+            }
+            
+          }
+          } >{auth.user?.first_name}</h3>
           :<h3 className='navbar__link' onClick={handleClick} >Login</h3>
         }
         {/* <h3 className='navbar__link' onClick={handleClick} >Login</h3> */}

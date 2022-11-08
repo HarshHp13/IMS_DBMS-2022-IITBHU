@@ -2,10 +2,6 @@ body{
   background-color: #ECECEC;
 }
 
-li::before{
-  content:"-",
-}
-
 .App {
   text-align: center;
 }

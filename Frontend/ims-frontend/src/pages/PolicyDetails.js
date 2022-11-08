@@ -17,7 +17,7 @@ const PolicyDetails = (props) => {
                         <div className='PolicyDetails__leftDataBlock'>
                             <strong>User :</strong>
                         </div>
-                        {props.userData.firstName} {props.userData.middleName} {props.userData.lastName}
+                        {props.userData.first_name} {props.userData.middle_name} {props.userData.last_name}
                     </div>
                     {
                         props.ApprovedPolicyData.premiumCount === 0

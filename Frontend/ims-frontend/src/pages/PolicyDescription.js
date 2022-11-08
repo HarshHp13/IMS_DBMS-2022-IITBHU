@@ -1,12 +1,50 @@
 import React, { useState } from 'react'
-import { Input, Button } from '@mui/material'
+// import { Input, Button } from '@mui/material'
+import Login from '@mui/icons-material/InfoOutlined';
+import Rejected from '@mui/icons-material/WarningAmberOutlined';
+import Approved from '@mui/icons-material/ThumbUpAltOutlined';
+import Waiting from '@mui/icons-material/AccessTimeOutlined';
 import './PolicyDescription.css'
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-
+import UseAuth from '../hooks/useAuth';
+import UseAxiosPrivate from '../hooks/useAxiosPrivate';
 function PolicyDescription(props) {
+    const { auth } = UseAuth()
+    const axiosPrivate=UseAxiosPrivate()
+    const [approval, setApproval]= useState({})
+    const apply=()=>{
+        const data={
+            user_id:auth.user.id,
+            policy_id:props.policyData.policy_id
+        }
+        axiosPrivate.post("/policy/policyApproval/apply",data)
+        .then((res)=>{
+            console.log("Success")
+            setModelState("request")
+        })
+        .catch((error)=>{
+            console.log(error)
+            alert("Something went wrong!!")
+        })
+    }
+
+    const getApproval=async ()=>{
+        const data={
+            user_id:auth.user.id,
+            policy_id:props.policyData.policy_id
+        }
+        await axiosPrivate.post("policy/policyApproval/approval",data,{headers:{"Content-Type":"application/json"}})
+        .then((res)=>{
+            setApproval(res.data)
+        })
+        .catch((error)=>{
+            console.log(error)
+            alert("Something went wrong!!")
+        })
+    }
+
+    getApproval()
+
+    // console.log(auth.isAuthenticated?1:0);
     const [modelState, setModelState] = useState("decsription");
     if (modelState === "decsription") {
         return (
@@ -37,14 +75,19 @@ function PolicyDescription(props) {
                         <strong className=' PolicyDescription__leftDataBlock'>Tenure : </strong> {props.policyData.tenure} years <br />
                     </div>
                 </div>
+                {/* {
+                    console.log(auth.isAuthenticated)
+                } */}
                 {
-                    props.ApplyButton==1
-                    ?<div className='PolicyDescription__apply'>
-                        <button onClick={() => setModelState("request")}>
-                            Apply
-                        </button>
-                    </div>
-                    :<div></div>
+                    auth.isAuthenticated
+                        ?approval
+                            ?approval.status===0
+                                ?<div className='policyDesc__reviewing'><Waiting className='policyDesc__icon' fontSize='medium' /><div>Your request is being reviewed.</div></div>
+                            :approval.status===1
+                                ?<div className='policyDesc__current'><Approved className='policyDesc__icon' fontSize='medium' /><div>This premium is currently ongoing.</div></div>
+                            :<div className='policyDesc__rejected'><Rejected className='policyDesc__icon' fontSize='medium' /><div>You are not eligible for this policy.</div></div>
+                        :<div className='PolicyDescription__apply'><button onClick={() =>apply()}>Apply</button></div>
+                    :<div className='policyDesc__login'><Login className='policyDesc__icon' fontSize='medium' /><div>Login to proceed</div></div>
                 }
             </div>
         );

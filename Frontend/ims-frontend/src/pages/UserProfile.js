@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import { Modal } from '@mui/material'
+// import { Modal } from '@mui/material'
 import './UserProfile.css'
 import {Button, Modal} from '@mui/material'
 import PolicyDetails from './PolicyDetails';
 import PolicyDescription from './PolicyDescription';
 import { useLocation } from 'react-router-dom';
 // import axios from '../services/axios';
-import UseAxiosPrivate from '../hooks/useAxiosPrivate';
 import { useNavigate } from 'react-router-dom';
 import UseAuth from '../hooks/useAuth';
+import UseAxiosPrivate from '../hooks/useAxiosPrivate';
 
 function UserProfile() {
-    const location = useLocation();
+    const location = useLocation()
+    const axiosPrivate=UseAxiosPrivate()
     const navigate=useNavigate()
     const {auth, setAuth}=UseAuth()
-    const [openDescription, setOpenDescription] = useState(false);
-    const [openDetails, setOpenDetails] = useState(false);
-    const [ApprovedPolicyData, setApprovedPolicyData] = useState({});
-    const [policyData, setPolicyData] = useState({});
+    const [openDescription, setOpenDescription] = useState(false)
+    const [openDetails, setOpenDetails] = useState(false)
+    const [ApprovedPolicyData, setApprovedPolicyData] = useState({})
+    const [policyData, setPolicyData] = useState({})
+    const [allApproval, setAllApproval] = useState([])
+    const [allApproved, setAllApproved] = useState([])
+
 
     const logoutHandler=()=>{
         setAuth(prev=>{
@@ -27,6 +31,27 @@ function UserProfile() {
         console.log(auth)
         
     }
+
+
+
+    axiosPrivate.post("/policy/policyApproval/getAllApproval",{user_id:auth.user.id}).then((res)=>{
+        setAllApproval(res.data)
+        // getApproval(res.data.policy_id)
+    }).catch((error)=>{
+        // console.log(error)
+    })
+
+    axiosPrivate.post("/policy/policyApproval/getAllApproved",{user_id:auth.user.id}).then((res)=>{
+        setAllApproved(res.data)
+        // getApproved(res.data.policy_id)
+    }).catch((error)=>{
+        // console.log(error)
+    })
+
+    
+
+    
+    
 
     return (
         <>
@@ -45,7 +70,7 @@ function UserProfile() {
             <div className='UserProfile__container'>
                 <div className='UserProfile__user'>
                     <div className='UserProfile__picture'></div>
-                    <div className='UserProfile__name'>{location.state.userData.firstName} {location.state.userData.middleName} {location.state.userData.lastName}</div>
+                    <div className='UserProfile__name'>{location.state.userData.first_name} {location.state.userData.middleName} {location.state.userData.last_name}</div>
                 </div>
                 <div className='UserProfile__userData'>
                     <div className='UserProfile__dataBlock'>
@@ -77,7 +102,7 @@ function UserProfile() {
                             <strong>Marrital Status:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__marritalStatus'>
-                            {location.state.userData.marrital_status}
+                            {location.state.userData.marital_status}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -93,7 +118,7 @@ function UserProfile() {
                             <strong>phone:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__phone'>
-                            {location.state.userData.phone}
+                            {/* {location.state.userData.phone} */}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -111,7 +136,7 @@ function UserProfile() {
                             <strong>Profession:</strong>
                         </div>
                         <div className='UserProfile__right_dataBlock UserProfile__profession'>
-                            {location.state.userData.professoin}
+                            {location.state.userData.profession}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -127,7 +152,7 @@ function UserProfile() {
                             <strong>Refferal Code:</strong>
                         </div>
                         <div className='UserProfile__right_data Block UserProfile__income'>
-                            ${location.state.userData.id}#{location.state.userData.firstName}
+                            ${location.state.userData.id}#{location.state.userData.first_name}
                         </div>
                     </div>
                     <div className='UserProfile__dataBlock'>
@@ -149,106 +174,76 @@ function UserProfile() {
                 </div>
                 <div className='UserProfile__currentPolicies'>
                     <h3>Current Policies</h3>
-                    <div className='UserProfile__dataBlock'>
-                        <div className='UserProfile__requestPolicyInfo'>
-                            <div className='UserProfile__left_dataBlock UserProfile__pointer' onClick={() => {
-                                setPolicyData({
-                                    desc: "Pehli Policy is a term insurance plan that takes care of your protection and savings needs for securing the future of your children. As a parent, one of your most important goals would be to make sure that your children have a bright future and lead their lives comfortably. These plans can help you achieve this by saving for your children’s higher education at a prestigious university.",
-                                    minAge: 12,
-                                    maxAge: 60,
-                                    profession: "student",
-                                    name: "pehli Policy",
-                                    registrationFee: 199,
-                                    premium: 2999,
-                                    tenure: 20,
-                                });
-                                setOpenDescription(true);
-                            }}>
-                                Pehli Policy
+                    {   allApproved?
+                        allApproved.map((policy)=>(
+                            <div className='UserProfile__dataBlock'>
+                                <div className='UserProfile__requestPolicyInfo'>
+                                    <div className='UserProfile__left_dataBlock UserProfile__pointer' onClick={() => {
+                                        setPolicyData(policy);
+                                        setOpenDescription(true);
+                                    }}>
+                                        {policy.policy_name}
+                                    </div>
+                                </div>
+                                <button className='UserProfile__button' onClick={() => {
+                                    setApprovedPolicyData({
+                                        name: policy.policy_name,
+                                        premium: policy.premium,
+                                        premiumCount: policy.premium_count,
+                                        sumAssurance: policy.life_cover, // in Rs
+                                        tenure: policy.tenure, // in years
+                                        agentName: policy.first_name+" "+policy.last_name,
+                                    });
+                                    setOpenDetails(true);
+                                }}>Status</button>
                             </div>
-                        </div>
-                        <button className='UserProfile__button' onClick={() => {
-                            setApprovedPolicyData({
-                                name: "Pehli Policy",
-                                premium: 1100,
-                                premiumCount: 12,
-                                sumAssurance: 4000000, // in Rs
-                                tenure: 60, // in years
-                                agentName: "Bheem pal",
-                            });
-                            setOpenDetails(true);
-                        }}>Status</button>
-                    </div>
-                    <div className='UserProfile__dataBlock'>
-                        <div className='UserProfile__requestPolicyInfo'>
-                            <div className='UserProfile__left_dataBlock UserProfile__pointer' onClick={() => {
-                                setPolicyData({
-                                    desc: "Pehli Policy is a term insurance plan that takes care of your protection and savings needs for securing the future of your children. As a parent, one of your most important goals would be to make sure that your children have a bright future and lead their lives comfortably. These plans can help you achieve this by saving for your children’s higher education at a prestigious university.",
-                                    minAge: 12,
-                                    maxAge: 60,
-                                    profession: "student",
-                                    name: "Aviva i-Life",
-                                    registrationFee: 199,
-                                    premium: 2999,
-                                    tenure: 20,
-                                });
-                                setOpenDescription(true);
-                            }}>
-                                Aviva i-Life
-                            </div>
-                        </div>
-                        <button className='UserProfile__button' onClick={() => {
-                            setApprovedPolicyData({
-                                name: "Aviva i-Life",
-                                premium: 2100,
-                                premiumCount: 4,
-                                sumAssurance: 10000000, // in Rs
-                                tenure: 40, // in years
-                                agentName: "Rati pal",
-                            });
-                            setOpenDetails(true);
-                        }}>Status</button>
-                    </div>
+                        ))
+                        :<></>
+                    }
+                    
                 </div>
                 <div className='UserProfile__requestedPolicies'>
                     <h3>Requested Policies</h3>
-                    <div className='UserProfile__dataBlock'>
-                        <div className='UserProfile__requestPolicyInfo'>
-                            <div className='UserProfile__left_dataBlock UserProfile__pointer' onClick={() => {
-                                setPolicyData({
-                                    desc: "Pehli Policy is a term insurance plan that takes care of your protection and savings needs for securing the future of your children. As a parent, one of your most important goals would be to make sure that your children have a bright future and lead their lives comfortably. These plans can help you achieve this by saving for your children’s higher education at a prestigious university.",
-                                    minAge: 12,
-                                    maxAge: 60,
-                                    profession: "student",
-                                    name: "KIC Life eShield",
-                                    registrationFee: 199,
-                                    premium: 2999,
-                                    tenure: 20,
-                                });
-                                setOpenDescription(true);
-                            }}>
-                                KIC Life eShield:
+                    {
+                        allApproval?
+                        allApproval?.map((policy)=>(
+                            <div className='UserProfile__dataBlock'>
+                                <div className='UserProfile__requestPolicyInfo'>
+                                    <div className='UserProfile__left_dataBlock UserProfile__pointer' onClick={() => {
+                                        setPolicyData(policy);
+                                        setOpenDescription(true);
+                                    }}>
+                                        {policy.policy_name}:
+                                    </div>
+                                    {
+                                        policy.status===1
+                                        ?<div className='UserProfile__right_data Block UserProfile__income'>Approved</div>
+                                        :policy.status===0
+                                        ?<div className='UserProfile__right_data Block UserProfile__income'>Pending</div>
+                                        :<div className='UserProfile__right_data Block UserProfile__income'>Rejected</div>
+                                    }
+                                    
+                                </div>
+                                {
+                                    policy.status === 1
+                                    ? <button className='UserProfile__button' onClick={() => {
+                                        setApprovedPolicyData({
+                                            name: policy.policy_name,
+                                            premium: policy.premium,
+                                            premiumCount: 0,
+                                            sumAssurance: policy.life_cover, // in Rs
+                                            tenure: policy.tenure, // in years
+                                            agentName: "Jagat Pal",
+                                        });
+                                        setOpenDetails(true);
+                                    }}>Proceed</button>
+                                    : <div></div>
+                                }
                             </div>
-                            <div className='UserProfile__right_data Block UserProfile__income'>
-                                Approved
-                            </div>
-                        </div>
-                        {
-                            location.state.show === 1
-                                ? <button className='UserProfile__button' onClick={() => {
-                                    setApprovedPolicyData({
-                                        name: "KIC Life eShield",
-                                        premium: 1650,
-                                        premiumCount: 0,
-                                        sumAssurance: 3000000, // in Rs
-                                        tenure: 40, // in years
-                                        agentName: "Jagat pal",
-                                    });
-                                    setOpenDetails(true);
-                                }}>Proceed</button>
-                                : <div></div>
-                        }
-                    </div>
+                        ))
+                        :<></>
+                    }
+                    
                 </div>
                 {
                     location.state.show === 1

@@ -26,9 +26,27 @@ function Home() {
             
         })
     }
+
+    const setAgent=()=>{
+        axiosPrivate.get("/agents/getAgent").then((res)=>{
+            const user=res.data
+            setAuth(prev=>{
+            return {...prev,user:user}
+            })
+            
+        })
+        console.log(auth.user)
+    }
+
     
     useEffect(() => {
-        if(auth.isAuthenticated) setUser();
+        const controller=new AbortController()
+        if(auth.isAuthenticated){
+            if(auth.role==="USER") setUser();
+            else if(auth.role==="AGENT") setAgent();
+            else {}
+        }
+        return ()=>{controller.abort()}
     }, [auth.isAuthenticated]);
 
     // const getUser=async ()=>{
