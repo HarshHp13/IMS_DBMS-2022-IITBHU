@@ -9,4 +9,5 @@ public interface AuthService {
     void addRoleToAuth(String username, String roleName);
     Auth getAuth(String username);
     List<Auth> getAuths();
+    boolean checkRole(String username, String role);
 }

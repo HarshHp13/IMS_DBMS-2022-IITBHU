@@ -81,4 +81,10 @@ public class AuthDao {
         });
         return auths;
     }
+
+    public boolean checkRole(String username, String role){
+        String query="select count(*) from auth where username=? and roles=?";
+        int count=jdbcTemp.queryForObject(query, new Object[]{username, role}, Integer.class);
+        return count > 0;
+    }
 }

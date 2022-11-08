@@ -1,12 +1,6 @@
 package com.example.backend.models;
 
-
-
-import java.sql.Blob;
-import java.time.LocalDate;
-import java.time.Period;
-
-public class User_info {
+public class User {
     private int id;
     private byte[] image;
     private String first_name;
@@ -28,36 +22,24 @@ public class User_info {
 
     private int referred_by; //foreign key pointing User
     private int branch_id; //foreign key pointing Branch
-//    private int agent_id; //foreign key pointing Agent
+    //    private int agent_id; //foreign key pointing Agent
     private int auth_id;
 
+    private String roles;
 
-    public User_info(){}
+    public User(){}
 
-
-
-    public User_info(String first_name, String phone, int age, String last_name, String date_of_birth, String email, String house, String street, String city, String state, String zipcode, int income, String profession, String gender, String marital_status, String signUp_date, int referred_by, int branch_id, int auth_id) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.date_of_birth = date_of_birth;
-        this.age = age;
-        this.email = email;
-        this.house = house;
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.zipcode = zipcode;
-        this.income = income;
-        this.profession = profession;
-        this.referrals = 0;
-        this.gender = gender;
-        this.marital_status=marital_status;
-        this.signUp_date = signUp_date;
-        this.referred_by = referred_by;
-        this.branch_id = branch_id;
-        this.auth_id=auth_id;
+    public void setReferrals(int referrals) {
+        this.referrals = referrals;
     }
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 
     public byte[] getImage(){
         return image;

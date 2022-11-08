@@ -3,11 +3,10 @@ import java.time.LocalDate;
 
 public class Branch {
     private int id;
-    private LocalDate since;
+    private String since;
     private String name;
     private String street;
     private String house;
-    private String landmark;
     private String city;
     private String state;
     private String zipcode;
@@ -20,11 +19,11 @@ public class Branch {
         this.id = id;
     }
 
-    public LocalDate getSince() {
+    public String getSince() {
         return since;
     }
 
-    public void setSince(LocalDate since) {
+    public void setSince(String since) {
         this.since = since;
     }
 
@@ -59,13 +58,6 @@ public class Branch {
         this.house = house;
     }
 
-    public String getLandmark(){
-        return landmark;
-    }
-
-    public void setLandmark(String landmark){
-        this.landmark = landmark;
-    }
 
     public String getCity() {
         return city;

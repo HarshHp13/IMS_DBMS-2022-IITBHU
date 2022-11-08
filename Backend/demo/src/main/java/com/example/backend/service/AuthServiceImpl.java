@@ -36,7 +36,6 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
 
     @Override
     public void addRoleToAuth(String username, String roleName) {
-        System.out.println("impl");
         authDao.addRoleToAuth(username,roleName);
     }
 
@@ -48,6 +47,11 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
     @Override
     public List<Auth> getAuths() {
         return (List<Auth>) authDao.findAll();
+    }
+
+    @Override
+    public boolean checkRole(String username, String role) {
+        return authDao.checkRole(username, role);
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.example.backend.filter;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.example.backend.models.User_info;
+import com.example.backend.service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,9 +24,11 @@ import static org.springframework.http.HttpStatus.FORBIDDEN;
 
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
+    private final UserService userService;
 
-    public CustomAuthenticationFilter(AuthenticationManager authenticationManager){
+    public CustomAuthenticationFilter(AuthenticationManager authenticationManager, UserService userService){
         this.authenticationManager=authenticationManager;
+        this.userService=userService;
     }
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -40,7 +44,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
         String access_token= JWT.create()
                 .withSubject(user.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + 10*60*1000))
+                .withExpiresAt(new Date(System.currentTimeMillis() + 60*60*1000))
                 .withIssuer(request.getRequestURL().toString())
                 .withClaim("roles",user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
                 .sign(algorithm);

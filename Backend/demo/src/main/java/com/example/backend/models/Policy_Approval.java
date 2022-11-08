@@ -1,28 +1,39 @@
 package com.example.backend.models;
 
-import java.time.LocalDate;
-
-public class policy_Approval {
-    private int policy_approval_id;
-    private LocalDate policy_approval_date;
+public class Policy_Approval {
+    private String policy_approval_date;
+    private String policy_request_date;
     private int policy_id;
     private int user_id;
     private int agent_id;
 
-    public int getPolicy_approval_id() {
-        return policy_approval_id;
+    private int status;
+
+    public Policy_Approval() {
     }
 
-    public void setPolicy_approval_id(int policy_approval_id) {
-        this.policy_approval_id = policy_approval_id;
+    public int getStatus() {
+        return status;
     }
 
-    public LocalDate getPolicy_approval_date() {
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getPolicy_approval_date() {
         return policy_approval_date;
     }
 
-    public void setPolicy_approval_date(LocalDate policy_approval_date) {
+    public void setPolicy_approval_date(String policy_approval_date) {
         this.policy_approval_date = policy_approval_date;
+    }
+
+    public String getPolicy_request_date() {
+        return policy_request_date;
+    }
+
+    public void setPolicy_request_date(String policy_request_date) {
+        this.policy_request_date = policy_request_date;
     }
 
     public int getPolicy_id() {

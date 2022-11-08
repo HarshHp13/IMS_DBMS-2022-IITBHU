@@ -1,13 +1,12 @@
 package com.example.backend.models;
 
-import java.time.LocalDate;
 import java.time.Period;
 
 public class Agent_info {
     private int id;
     private String first_name;
     private String last_name;
-    private LocalDate date_of_birth;
+    private String date_of_birth;
     private int age;
     private String email;
     private int no_of_policies;
@@ -21,7 +20,7 @@ public class Agent_info {
 
     private int branch_id; // Foreign key pointing Branch he is working for
 
-    public Agent_info(int id, String first_name, String last_name, LocalDate date_of_birth, int age, String email, int no_of_policies, String street, String house, String landmark, String city, String state, String zipcode, String gender, int branch_id) {
+    public Agent_info(int id, String first_name, String last_name, String date_of_birth, int age, String email, int no_of_policies, String street, String house, String landmark, String city, String state, String zipcode, String gender, int branch_id) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -37,6 +36,10 @@ public class Agent_info {
         this.zipcode = zipcode;
         this.gender = gender;
         this.branch_id = branch_id;
+    }
+
+    public Agent_info() {
+
     }
 
     public int getId() {
@@ -63,11 +66,11 @@ public class Agent_info {
         this.last_name = last_name;
     }
 
-    public LocalDate getDate_of_birth() {
+    public String getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(LocalDate date_of_birth) {
+    public void setDate_of_birth(String date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 
@@ -75,10 +78,6 @@ public class Agent_info {
         return age;
     }
 
-    public void updateAge() {
-        if(date_of_birth != null)
-            age = Period.between(date_of_birth, LocalDate.now()).getYears();
-    }
 
     public String getEmail() {
         return email;
@@ -92,13 +91,10 @@ public class Agent_info {
         return no_of_policies;
     }
 
-    public void incrementNo_of_policies() {
-        no_of_policies++;
-    }
 
-    // public void setNo_of_policies(int no_of_policies) {
-    //     this.no_of_policies = no_of_policies;
-    // }
+     public void setNo_of_policies(int no_of_policies) {
+         this.no_of_policies = no_of_policies;
+     }
 
     public String getStreet() {
         return street;

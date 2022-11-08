@@ -32,12 +32,11 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
         response.setHeader("Access-Control-Allow-Headers", "*");
         response.setHeader("Access-Control-Expose-Headers", "Content-Type, Authorization, access_token, refresh_token, xsrf-token");
 
-        if(request.getServletPath().equals("/login") || request.getServletPath().equals("/refreshToken") || request.getServletPath().equals("/signUp") || request.getServletPath().equals("/policy/list")){
+        if(request.getServletPath().equals("/login")|| request.getServletPath().equals("/refreshToken") || request.getServletPath().equals("/signUp") || request.getServletPath().equals("/policy/list") || request.getServletPath().equals("/branch/list")|| request.getServletPath().equals("/auth/checkRole")){
             filterChain.doFilter(request,response);
         }
         else{
             String authorizationHeader = request.getHeader(AUTHORIZATION);
-            System.out.println(authorizationHeader);
             if(authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
                 try {
 

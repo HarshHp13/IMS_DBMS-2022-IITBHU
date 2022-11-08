@@ -2,7 +2,7 @@ package com.example.backend.models;
 
 import java.time.LocalDate;
 
-public class Policy {
+public class Approved {
     private int policy_id;
     private String policy_name;
     private int tenure;
@@ -14,23 +14,61 @@ public class Policy {
     private int min_age;
     private int max_age;
     private String occupation;
+    private int user_id;
+    private int agent_id;
+    private String first_name;
+    private String last_name;
+    private int premium_count;
+    private boolean claimed;
 
-    public Policy(int policy_id, String policy_name, int tenure, String policy_description, int premium, int life_cover, LocalDate policy_creation_date, String policy_type, int min_age, int max_age, String occupation) {
-        this.policy_id = policy_id;
-        this.policy_name = policy_name;
-        this.tenure = tenure;
-        this.policy_description = policy_description;
-        this.premium = premium;
-        this.life_cover = life_cover;
-        this.policy_creation_date = policy_creation_date;
-        this.policy_type = policy_type;
-        this.min_age = min_age;
-        this.max_age = max_age;
-        this.occupation = occupation;
+    public Approved(){}
+
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public Policy() {
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
 
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public int getAgent_id() {
+        return agent_id;
+    }
+
+    public void setAgent_id(int agent_id) {
+        this.agent_id = agent_id;
+    }
+
+    public int getPremium_count() {
+        return premium_count;
+    }
+
+    public void setPremium_count(int premium_count) {
+        this.premium_count = premium_count;
+    }
+
+    public boolean isClaimed() {
+        return claimed;
+    }
+
+    public void setClaimed(boolean claimed) {
+        this.claimed = claimed;
     }
 
     public int getPolicy_id() {
@@ -120,4 +158,5 @@ public class Policy {
     public void setOccupation(String occupation) {
         this.occupation = occupation;
     }
+
 }
