@@ -32,7 +32,7 @@ function About() {
                         <p className="desc">Dhruv Insurance was founded in 2022 with one objective: bringing transparency in insurance. The founders wanted to reimagine insurance, so they started by simplifying all the information around plans, ending the rampant mis-selling, and preventing policy lapses.</p>
                     </div>
                     <div className="one">
-                        <img className="img1" src="https://i.pinimg.com/originals/df/39/2f/df392fb90619818047bf4f09e0adbc36.gif" alt="" />
+                        <img className="img1" src="./animated.gif" alt="" />
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@ function About() {
                         <p className="desc">While we are happy with how we are changing insurance for the country, we know there is still a lot of work to be done. Our vision to bring pioneering technologies & innovations to the field continues to grow. We aspire to build a health & financial safety net for more households in India in the coming years.</p>
                     </div>
                     <div className="one">
-                    <img className="img3" src="https://cdn.dribbble.com/users/527451/screenshots/3085678/skillsoft_icon_goals.gif" alt="" />
+                    <img className="img3" src="./arrow.gif" alt="" />
                     </div>
                 </div>
 
@@ -67,11 +67,11 @@ function About() {
                 <div className="cards">
                     <img className="teampic" src="./dhruv.png" alt="we" />
                 </div>
-                <div className="cards"></div>
-                <div className="cards"></div>
+                <div className="cards"><img className="teampic" src="./harshit.jpg" alt="we" /></div>
+                <div className="cards"><img className="teampic" src="./archana.jpg" alt="we" /></div>
             </div>
             <div className="team">
-                <div className="cards"></div>
+                <div className="cards"><img className="teampic" src="./hp.jpg" alt="we" /></div>
                 <div className="cards"></div>
                 <div className="cards"></div>
             </div>

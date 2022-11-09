@@ -1,6 +1,6 @@
 import {Input, Button, Select, InputLabel, MenuItem, FormControl} from '@mui/material'
 import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import './LoginUser.css'
 import axios from '../services/axios'
 import qs from 'qs'
@@ -39,7 +39,16 @@ function LoginUser() {
   const [branches, setBranches]=useState([])
   const [roleStat, setRoleStat]= useState(null)
 
-  axios.get("/branch/list").then((res)=>setBranches(res.data)).catch((error)=>alert(error))
+  useEffect(() => {
+    let isTrue=true;
+    if(isTrue){
+      axios.get("/branch/list").then((res)=>setBranches(res.data)).catch((error)=>alert(error))
+    }
+    return () => {
+      isTrue=false
+    };
+  }, []);
+  
 
   
   // const calcAge=()=>{

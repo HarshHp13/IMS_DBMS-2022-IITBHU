@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 function Home() {
     const {auth,setAuth}= UseAuth()
     const axiosPrivate=UseAxiosPrivate();
-    const refresh=RefreshToken();
+    // const refresh=RefreshToken();
     const getClient=async ()=>{
         const res = await axiosPrivate.get('/clients')
         return res.data;
@@ -35,7 +35,18 @@ function Home() {
             })
             
         })
-        console.log(auth.user)
+        // console.log(auth.user)
+    }
+
+    const setAdmin=()=>{
+        axiosPrivate.get("/admin/getAdmin").then((res)=>{
+            const user=res.data
+            setAuth(prev=>{
+            return {...prev,user:user}
+            })
+            
+        })
+        // console.log(auth.user)
     }
 
     
@@ -44,10 +55,12 @@ function Home() {
         if(auth.isAuthenticated){
             if(auth.role==="USER") setUser();
             else if(auth.role==="AGENT") setAgent();
-            else {}
+            else {setAdmin()}
         }
         return ()=>{controller.abort()}
     }, [auth.isAuthenticated]);
+
+    // console.log(auth)
 
     // const getUser=async ()=>{
     //     const res=await 

@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UseAuth from '../hooks/useAuth';
+import UseAxiosPrivate from '../hooks/useAxiosPrivate';
+// import { axiosPrivate } from '../services/axios';
 import './PolicyDetails.css'
 
 const PolicyDetails = (props) => {
     const [popUp, setPopUp] = useState("PolicyDetails");
+    const [agent, setAgent] = useState({})
+    const {auth}=UseAuth()
+    const axiosPrivate=UseAxiosPrivate()
     const navigate = useNavigate()
+
+    const onClickHandler=(policy_id)=>{
+        axiosPrivate.post("/policy/update",{user_id:auth.user.id, policy_id:policy_id}).then((res)=>{document.elementFromPoint(0,0).click()}).catch((error)=>console.log(error))
+        alert("Premium Payed Successfully")
+    }
+
     if (popUp === "PolicyDetails") {
         return (
             <div className='PolicyDetails__container'>
                 <div className='PolicyDetails__heading'>
-                    <h1>{props.ApprovedPolicyData.name}</h1>
+                    <h1>{props.ApprovedPolicyData.policy_name}</h1>
                 </div>
                 <h3>Details</h3>
                 <div className='PolicyDetails__details'>
@@ -17,7 +29,7 @@ const PolicyDetails = (props) => {
                         <div className='PolicyDetails__leftDataBlock'>
                             <strong>User :</strong>
                         </div>
-                        {props.userData.first_name} {props.userData.middle_name} {props.userData.last_name}
+                        {props.ApprovedPolicyData.first_name} {props.ApprovedPolicyData.middle_name} {props.ApprovedPolicyData.last_name}
                     </div>
                     {
                         props.ApprovedPolicyData.premiumCount === 0
@@ -26,14 +38,14 @@ const PolicyDetails = (props) => {
                                 <div className='PolicyDetails__leftDataBlock'>
                                     <strong>payed premiums :</strong>
                                 </div>
-                                {props.ApprovedPolicyData.premiumCount}
+                                {props.ApprovedPolicyData.premium_count}
                             </div>
                     }
                     <div className='PolicyDetails__dataBlock PolicyDetails__bottomBorder'>
                         <div className='PolicyDetails__leftDataBlock'>
                             <strong>Sum Assurance :</strong>
                         </div>
-                        {props.ApprovedPolicyData.sumAssurance} Rs.
+                        {props.ApprovedPolicyData.sum_assurance} Rs.
                     </div>
                     <div className='PolicyDetails__dataBlock PolicyDetails__bottomBorder'>
                         <div className='PolicyDetails__leftDataBlock'>
@@ -47,28 +59,7 @@ const PolicyDetails = (props) => {
                         </div>
                         {props.ApprovedPolicyData.premium} Rs.
                     </div>
-                    <div className='PolicyDetails__dataBlock'>
-                        <div className='PolicyDetails__leftDataBlock'>
-                            <strong>Agent :</strong>
-                        </div>
-                        <div className='agent' onClick={() => {
-                            navigate("/agentProfile", {
-                                state: {
-                                    agentData: {
-                                        id: 1,
-                                        firstName: "Harshit",
-                                        middleName: null,
-                                        lastName: "Singh",
-                                        email: "artofharry00@gmail.com",
-                                        phone: "9910279337",
-                                    },
-                                    show: 0,
-                                }
-                            })
-                        }}>
-                            {props.ApprovedPolicyData.agentName}
-                        </div>
-                    </div>
+                    
                 </div>
                     {
                         props.show === 1
@@ -96,13 +87,13 @@ const PolicyDetails = (props) => {
                         <div className='PolicyDetails__leftDataBlock'>
                             <strong>Policy Name :</strong>
                         </div>
-                        {props.ApprovedPolicyData.name}
+                        {props.ApprovedPolicyData.policy_name}
                     </div>
                     <div className='PolicyDetails__dataBlock PolicyDetails__bottomBorder'>
                         <div className='PolicyDetails__leftDataBlock'>
                             <strong>Premium no :</strong>
                         </div>
-                        {props.ApprovedPolicyData.premiumCount + 1}
+                        {props.ApprovedPolicyData.premium_count + 1}
                     </div>
                     <div className='PolicyDetails__dataBlock'>
                         <div className='PolicyDetails__leftDataBlock'>
@@ -112,7 +103,7 @@ const PolicyDetails = (props) => {
                     </div>
                 </div>
                 <div className='PolicyDetails__button'>
-                    <button>Pay</button>
+                    <button onClick={()=>{onClickHandler(props.ApprovedPolicyData.policy_id)}}>Pay</button>
                 </div>
             </div>
         );

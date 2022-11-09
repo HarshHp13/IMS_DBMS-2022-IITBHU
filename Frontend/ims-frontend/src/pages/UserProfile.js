@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 // import { Modal } from '@mui/material'
 import './UserProfile.css'
 import {Button, Modal} from '@mui/material'
@@ -21,8 +21,9 @@ function UserProfile() {
     const [policyData, setPolicyData] = useState({})
     const [allApproval, setAllApproval] = useState([])
     const [allApproved, setAllApproved] = useState([])
+    const [isTrue, setIsTrue]=useState(true);
 
-
+    window.onload=()=>{setIsTrue(true)}
     const logoutHandler=()=>{
         setAuth(prev=>{
             return {...prev, access_token:"", refresh_token:"", isAuthenticated:false}
@@ -32,21 +33,29 @@ function UserProfile() {
         
     }
 
+    useEffect(() => {
+        if(isTrue){
+            axiosPrivate.post("/policy/policyApproval/getAllApproval",{user_id:auth.user.id}).then((res)=>{
+                setAllApproval(res.data)
+                // getApproval(res.data.policy_id)
+            }).catch((error)=>{
+                // console.log(error)
+            })
+        
+            axiosPrivate.post("/policy/policyApproval/getAllApproved",{user_id:auth.user.id}).then((res)=>{
+                setAllApproved(res.data)
+                // getApproved(res.data.policy_id)
+            }).catch((error)=>{
+                // console.log(error)
+            })
+        }
+        return () => {
+            setIsTrue(false)
+        };
+    }, [isTrue]);
 
 
-    axiosPrivate.post("/policy/policyApproval/getAllApproval",{user_id:auth.user.id}).then((res)=>{
-        setAllApproval(res.data)
-        // getApproval(res.data.policy_id)
-    }).catch((error)=>{
-        // console.log(error)
-    })
-
-    axiosPrivate.post("/policy/policyApproval/getAllApproved",{user_id:auth.user.id}).then((res)=>{
-        setAllApproved(res.data)
-        // getApproved(res.data.policy_id)
-    }).catch((error)=>{
-        // console.log(error)
-    })
+    
 
     
 
@@ -63,7 +72,7 @@ function UserProfile() {
             </Modal>
             <Modal
                 open={openDetails}
-                onClose={() => setOpenDetails(false)}
+                onClose={() => {setOpenDetails(false);setIsTrue(true)}}
             >
                 <PolicyDetails ApprovedPolicyData={ApprovedPolicyData} userData={location.state.userData} show={location.state.show}></PolicyDetails>
             </Modal>
@@ -187,18 +196,19 @@ function UserProfile() {
                                 </div>
                                 <button className='UserProfile__button' onClick={() => {
                                     setApprovedPolicyData({
-                                        name: policy.policy_name,
+                                        policy_id:policy.policy_id,
+                                        policy_name: policy.policy_name,
                                         premium: policy.premium,
-                                        premiumCount: policy.premium_count,
-                                        sumAssurance: policy.life_cover, // in Rs
+                                        premium_count: policy.premium_count,
+                                        sum_assurance: policy.life_cover, // in Rs
                                         tenure: policy.tenure, // in years
-                                        agentName: policy.first_name+" "+policy.last_name,
+                                        agent_name: policy.first_name+" "+policy.last_name,
                                     });
                                     setOpenDetails(true);
                                 }}>Status</button>
                             </div>
                         ))
-                        :<></>
+                        :<><center>No ongoing policy</center></>
                     }
                     
                 </div>
@@ -225,15 +235,16 @@ function UserProfile() {
                                     
                                 </div>
                                 {
-                                    policy.status === 1
+                                    policy.status === 1 && location.state.show === 1
                                     ? <button className='UserProfile__button' onClick={() => {
                                         setApprovedPolicyData({
-                                            name: policy.policy_name,
+                                            policy_id:policy.policy_id,
+                                            policy_name: policy.policy_name,
                                             premium: policy.premium,
-                                            premiumCount: 0,
-                                            sumAssurance: policy.life_cover, // in Rs
+                                            premium_count: 0,
+                                            sum_assurance: policy.life_cover, // in Rs
                                             tenure: policy.tenure, // in years
-                                            agentName: "Jagat Pal",
+                                            agent_name:"Jagat Pal",
                                         });
                                         setOpenDetails(true);
                                     }}>Proceed</button>

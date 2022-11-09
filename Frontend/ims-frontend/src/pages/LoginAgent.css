@@ -1,0 +1,36 @@
+.loginAdmin__email{
+    margin: 10px;
+}
+.loginAdmin__password{
+    margin: 10px;
+}
+.loginAdmin__button{
+    margin:auto;
+    margin-top: 20px;
+}
+.loginAdmin__container{
+    background-color: white;
+    justify-content: center;
+    /* margin-top: 25vh;
+    margin-left: 25vw; */
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 35vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: 300px; */
+    width: 500px;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(66, 63, 63);
+}
+
+.loginAdmin__text{
+    width:fit-content;
+    margin-top: 10px;
+    color:blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

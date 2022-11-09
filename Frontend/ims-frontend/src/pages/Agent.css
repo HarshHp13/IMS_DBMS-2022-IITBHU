@@ -1,0 +1,53 @@
+.agent__wrapper{
+    margin: auto;
+    width:50vw;
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.agent__container{
+    
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.agent__name{
+    margin: 10px;
+}
+
+.agent__email{
+    margin: 10px;
+}
+.agent__dob{
+    margin: 10px;
+}
+.agent__gender{
+    margin: 10px;
+}
+.agent__noOfPolicies{
+    margin: 10px;
+}
+.agent__buttons{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+}
+.agent__buttonDelete{
+    margin: auto;
+}
+.agent__heading{
+    margin:auto;
+    padding:10px;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px;
+    width: 50vw;
+    font-size: x-large;
+    justify-content: center;
+}

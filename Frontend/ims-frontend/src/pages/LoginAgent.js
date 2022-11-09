@@ -1,7 +1,7 @@
 import {Input, Button} from '@mui/material'
 import React from 'react'
 import {useState} from 'react'
-import './LoginAdmin.css'
+import './LoginAgent.css'
 import axios from '../services/axios'
 import qs from 'qs'
 import UseAuth from '../hooks/useAuth'
@@ -9,7 +9,7 @@ import UseAuth from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 
 
-function LoginAdmin() {
+function LoginAgent() {
   const { auth,setAuth }=UseAuth();
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -19,7 +19,7 @@ function LoginAdmin() {
 
 
 
-  const adminLogin=async ()=>{
+  const agentLogin=async ()=>{
     const auth={
       username: username,
       password: password
@@ -36,11 +36,11 @@ function LoginAdmin() {
   function clickHandler(e,user,pass) {
     e.preventDefault();
     if(roleStat===true){
-      adminLogin(user,pass)
+      agentLogin(user,pass)
       .then((res)=>{
         const accessToken=res.headers.get('access_token')
         const refreshToken=res.headers.get('refresh_token')
-        setAuth({accessToken, refreshToken, isAuthenticated: true, role:"ADMIN"})
+        setAuth({accessToken, refreshToken, isAuthenticated: true, role:"AGENT"})
         navigate('/')
       })
       .catch((error)=>{
@@ -57,7 +57,7 @@ function LoginAdmin() {
 
 
  const checkAuth=(val)=>{
-  axios.post("/auth/checkRole",{username:val,role:"ADMIN"}).then((res)=>{setRoleStat(res.data)})
+  axios.post("/auth/checkRole",{username:val,role:"AGENT"}).then((res)=>{setRoleStat(res.data)})
  }
 
 
@@ -65,7 +65,7 @@ function LoginAdmin() {
  return (
   <>
       <form className='loginUser__container'>
-        <center><h3>Admin Login</h3></center>
+        <center><h3>Agent Login</h3></center>
         <Input className={roleStat===true?'loginUser__inputCorrect':roleStat===false?'loginUser__inputWrong':'loginUser__input'} type='email' placeholder='Username' onChange={(e)=>{setUsername(e.target.value);checkAuth(e.target.value)}} required/>
         <Input className='loginUser__input' type='password' placeholder='Password' onChange={(e)=>setPassword(e.target.value)} required/>
         <center><Button className='loginUser__button' onClick={(e)=>{clickHandler(e,username,password)}}>Login</Button></center>
@@ -74,4 +74,4 @@ function LoginAdmin() {
 )
     
 }
-export default LoginAdmin
+export default LoginAgent

@@ -14,11 +14,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 // import Tooltip from '@mui/material/Tooltip';
 import User from '@mui/icons-material/Person';
 // import Settings from '@mui/icons-material/VerifiedUser';
+import Admin from '@mui/icons-material/SupervisorAccount';
 import Agent from '@mui/icons-material/SupportAgent';
 import LoginAdmin from '../pages/LoginAdmin';
 import LoginUser from '../pages/LoginUser';
 import UseAxiosPrivate from '../hooks/useAxiosPrivate';
 import UseAuth from '../hooks/useAuth';
+import LoginAgent from '../pages/LoginAgent';
 
 function Navbar() {
   const navigate=useNavigate()
@@ -27,6 +29,7 @@ function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openUser, setOpenUser] = useState(false);
   const [openAdmin, setOpenAdmin] = useState(false);
+  const [openAgent, setOpenAgent] = useState(false);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -50,6 +53,12 @@ function Navbar() {
         onClose={() => setOpenAdmin(false)}
       >
         <LoginAdmin />
+      </Modal>
+      <Modal
+        open={openAgent}
+        onClose={() => setOpenAgent(false)}
+      >
+        <LoginAgent />
       </Modal>
       <Modal
         open={openUser}
@@ -107,11 +116,17 @@ function Navbar() {
           </ListItemIcon>
           User
         </MenuItem>
-        <MenuItem onClick={() => setOpenAdmin(true)}>
+        <MenuItem onClick={() => setOpenAgent(true)}>
           <ListItemIcon>
             <Agent fontSize="small" />
           </ListItemIcon>
           Agent
+        </MenuItem>
+        <MenuItem onClick={() => setOpenAdmin(true)}>
+          <ListItemIcon>
+            <Admin fontSize="small" />
+          </ListItemIcon>
+          Admin
         </MenuItem>
         {/* <MenuItem>
           <ListItemIcon>
@@ -125,6 +140,13 @@ function Navbar() {
         <h3 className='navbar__link'><Link className='link' to={'/'}>Home</Link></h3>
         <h3 className='navbar__link'><Link className='link' to={'/policies'}>Policies</Link></h3>
         {/* <h3 className='navbar__link'><Link className='link' to={'/'}>Active Plans</Link></h3> */}
+        {
+          auth.isAuthenticated?
+          auth.role==="ADMIN"
+          ?<h3 className='navbar__link' onClick={(e)=>{navigate("/agent")}} >Agents</h3>
+          :<></>
+          :<></>
+        }
         <h3 className='navbar__link'><Link className='link' to={'/about'}>About Us</Link></h3>
         <h3 className='navbar__link right' onClick={() => {
           window.scrollBy({
@@ -133,6 +155,8 @@ function Navbar() {
             behavior: 'smooth'
           });
         }}>Contact Us</h3>
+
+  
         {
           auth.isAuthenticated
           ?<h3 className='navbar__link' onClick={()=>{
@@ -142,11 +166,16 @@ function Navbar() {
             else if(auth.role==="AGENT"){
               navigate("/agentProfile",{state:{agentData:auth.user,show:1}})
             }
+            else{
+              navigate("/adminProfile",{state:{agentData:auth.user,show:1}})
+            }
             
           }
           } >{auth.user?.first_name}</h3>
           :<h3 className='navbar__link' onClick={handleClick} >Login</h3>
         }
+
+        
         {/* <h3 className='navbar__link' onClick={handleClick} >Login</h3> */}
         
     </div>

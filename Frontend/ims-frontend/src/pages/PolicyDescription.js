@@ -80,6 +80,7 @@ function PolicyDescription(props) {
                 } */}
                 {
                     auth.isAuthenticated
+                    ?auth.role==="USER"
                         ?approval
                             ?approval.status===0
                                 ?<div className='policyDesc__reviewing'><Waiting className='policyDesc__icon' fontSize='medium' /><div>Your request is being reviewed.</div></div>
@@ -87,6 +88,7 @@ function PolicyDescription(props) {
                                 ?<div className='policyDesc__current'><Approved className='policyDesc__icon' fontSize='medium' /><div>This premium is currently ongoing.</div></div>
                             :<div className='policyDesc__rejected'><Rejected className='policyDesc__icon' fontSize='medium' /><div>You are not eligible for this policy.</div></div>
                         :<div className='PolicyDescription__apply'><button onClick={() =>apply()}>Apply</button></div>
+                        :<></>
                     :<div className='policyDesc__login'><Login className='policyDesc__icon' fontSize='medium' /><div>Login to proceed</div></div>
                 }
             </div>
