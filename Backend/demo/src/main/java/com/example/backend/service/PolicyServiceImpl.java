@@ -56,4 +56,21 @@ public class PolicyServiceImpl implements PolicyService{
     public Approved_Policy getApproved(int user_id, int policy_id) {
         return policyDao.getApproved(user_id,policy_id);
     }
+
+    @Override
+    public void updateApproved(int user_id, int policy_id) {
+        policyDao.updateApproved(user_id,policy_id);
+    }
+
+    @Override
+    public List<AgentReq> requestedPoliciesForAgent(int agent_id) {
+        return policyDao.requestedPoliciesForAgent(agent_id);
+    }
+
+    @Override
+    public List<AgentCurr> currentPoliciesForAgent(int agent_id) {
+        return policyDao.currentPolicyForAgent(agent_id);
+    }
+
+
 }

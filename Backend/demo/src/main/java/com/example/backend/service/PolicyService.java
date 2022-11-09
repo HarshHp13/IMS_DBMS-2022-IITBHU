@@ -19,4 +19,9 @@ public interface PolicyService {
     List<Approved> getAllApproved(int user_id);
 
     Approved_Policy getApproved(int user_id, int policy_id);
+
+    void updateApproved(int user_id, int policy_id);
+
+    List<AgentReq> requestedPoliciesForAgent(int agent_id);
+    List<AgentCurr> currentPoliciesForAgent(int agent_id);
 }

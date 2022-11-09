@@ -18,7 +18,8 @@ public class Agent_info {
     private String zipcode;
     private String gender;
 
-    private int branch_id; // Foreign key pointing Branch he is working for
+    private int branch_id;
+    private int auth_id;// Foreign key pointing Branch he is working for
 
     public Agent_info(int id, String first_name, String last_name, String date_of_birth, int age, String email, int no_of_policies, String street, String house, String landmark, String city, String state, String zipcode, String gender, int branch_id) {
         this.id = id;
@@ -40,6 +41,14 @@ public class Agent_info {
 
     public Agent_info() {
 
+    }
+
+    public int getAuth_id() {
+        return auth_id;
+    }
+
+    public void setAuth_id(int auth_id) {
+        this.auth_id = auth_id;
     }
 
     public int getId() {

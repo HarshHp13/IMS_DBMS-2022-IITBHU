@@ -1,22 +1,23 @@
 package com.example.backend.models;
 
-import java.time.LocalDate;
+
 import java.time.Period;
 
-import java.time.LocalDate;
 
 public class Admin_info {
     private int id;
     private String first_name;
     private String last_name;
-    private LocalDate date_of_birth;
+    private String date_of_birth;
     private String email;
     private Period age;
     private String gender;
 
     private int branch_id;
 
-    public Admin_info(int id, String first_name, String last_name, LocalDate date_of_birth, String email, Period age, String gender, int branch_id) {
+    public Admin_info(){}
+
+    public Admin_info(int id, String first_name, String last_name, String date_of_birth, String email, Period age, String gender, int branch_id) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -51,21 +52,16 @@ public class Admin_info {
         this.last_name = last_name;
     }
 
-    public LocalDate getDate_of_birth() {
+    public String getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(LocalDate date_of_birth) {
+    public void setDate_of_birth(String date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 
     public Period getAge() {
         return age;
-    }
-
-    public void updateAge() {
-        if(date_of_birth != null)
-            age = Period.between(date_of_birth, LocalDate.now());
     }
 
     public String getGender() {

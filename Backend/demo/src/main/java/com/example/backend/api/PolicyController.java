@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(value = "http://localhost:3000", allowCredentials ="true")
+@CrossOrigin(value = {"http://localhost:3000" , "http://localhost:3001"},allowCredentials = "true")
 @RequestMapping("/policy")
 public class PolicyController {
 
@@ -64,6 +64,21 @@ public class PolicyController {
     @PostMapping("/policyApproval/getApproval")
     public Policy_Approval getApproval(@RequestBody Map<String, Integer> map){
         return policyService.getApproval(map.get("user_id"), map.get("policy_id"));
+    }
+
+    @PostMapping("/update")
+    void update(@RequestBody Map<String, Integer> mp){
+        policyService.updateApproved(mp.get("user_id"),mp.get("policy_id"));
+    }
+
+    @PostMapping("/agentReq")
+    List<AgentReq> agentReqs(@RequestBody Map<String, Integer> mp){
+        return policyService.requestedPoliciesForAgent(mp.get("agent_id"));
+    }
+
+    @PostMapping("/agentCurr")
+    List<AgentCurr> agentCurrs(@RequestBody Map<String, Integer> mp){
+        return policyService.currentPoliciesForAgent(mp.get("agent_id"));
     }
 
 }

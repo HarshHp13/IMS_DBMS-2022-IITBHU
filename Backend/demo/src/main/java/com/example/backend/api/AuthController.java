@@ -26,7 +26,7 @@ import static org.springframework.http.HttpStatus.FORBIDDEN;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(value = {"http://localhost:3000" , "http://localhost:3001"},allowCredentials = "true")
 public class AuthController {
     private final AuthService authService;
     private final PasswordEncoder passwordEncoder;
