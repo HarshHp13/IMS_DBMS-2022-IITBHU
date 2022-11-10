@@ -10,14 +10,14 @@ public class Admin_info {
     private String last_name;
     private String date_of_birth;
     private String email;
-    private Period age;
+    private int age;
     private String gender;
 
     private int branch_id;
 
     public Admin_info(){}
 
-    public Admin_info(int id, String first_name, String last_name, String date_of_birth, String email, Period age, String gender, int branch_id) {
+    public Admin_info(int id, String first_name, String last_name, String date_of_birth, String email, int age, String gender, int branch_id) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -60,9 +60,10 @@ public class Admin_info {
         this.date_of_birth = date_of_birth;
     }
 
-    public Period getAge() {
+    public int getAge() {
         return age;
     }
+    public void setAge(int age){this.age=age;}
 
     public String getGender() {
         return gender;

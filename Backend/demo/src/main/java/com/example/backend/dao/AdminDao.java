@@ -30,6 +30,7 @@ public class AdminDao {
                     agent.setId(frm.getInt("admin_id"));
                     agent.setEmail(frm.getString("email"));
                     agent.setDate_of_birth(frm.getString("dob"));
+                    agent.setAge(frm.getInt("age"));
                     agent.setFirst_name(frm.getString("firstName"));
                     agent.setLast_name(frm.getString("lastName"));
                     agent.setGender(frm.getString("gender"));

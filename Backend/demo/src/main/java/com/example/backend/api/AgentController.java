@@ -51,11 +51,10 @@ public class AgentController {
     }
 
     @PostMapping(value = "/addAgent",consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    void addAgent(SignUp frm){
+    public void addAgent(SignUp frm){
         System.out.println(frm.toString());
         Auth auth = new Auth(frm.getUsername(), frm.getPassword(), "AGENT");
         authService.saveAuth(auth);
-        authService.addRoleToAuth(frm.getUsername(), "AGENT");
 
         Agent_info agent = new Agent_info();
         agent.setCity(frm.getCity());
@@ -68,9 +67,11 @@ public class AgentController {
         agent.setStreet(frm.getStreet());
         agent.setState(frm.getState());
         agent.setBranch_id(frm.getBranch_id());
+        agent.setDate_of_birth(frm.getDob());
 //        agent.setSignUp_date(frm.getSignUp_date());
 //        System.out.println(frm.getSignUp_date());
         Auth a = authService.getAuth(frm.getUsername());
+        System.out.println(a.getId());
         agentService.saveAgent(agent, a.getId());
     }
 
@@ -82,6 +83,7 @@ class SignUp{
     private String fname;
     private String lname;
     //    private String signUp_date;
+    private  String dob;
     private String house;
     private String street;
     private String city;
@@ -97,6 +99,14 @@ class SignUp{
 
 
     public SignUp() {
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public int getBranch_id() {

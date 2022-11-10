@@ -117,7 +117,7 @@ public class AgentDao {
     }
 
     public int saveAgent(String first_name, String last_name, String date_of_birth, String email, String house, String street, String city, String state, String zipcode, String gender, int branch_id, int auth_id){
-        String query="insert into agent(firstName,lastName,email,gender,dob,street_name,house,city,state,zipcode,branch_id,auth_id) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query="insert into agent(firstName,lastName,email,gender,date_of_birth,street_name,house_no,city,state,zipcode,branch_id,auth_id,no_of_policies) values (?,?,?,?,?,?,?,?,?,?,?,?,0)";
         int insert=this.jdbcTemplate.update(query, first_name, last_name, email, gender, date_of_birth,street, house, city, state, zipcode, branch_id, auth_id);
         return insert;
     }
